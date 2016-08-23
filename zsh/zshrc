@@ -135,6 +135,7 @@ compdef _gnu_generic gdb
 # Plugins
 ##
 
+source "$ZSH/aliases.zsh"
 source "$ZSH/theme.zsh"
 source "$ZSH/git-prompt/git_prompt.zsh"
 source "$ZSH/autosuggestions/zsh-autosuggestions.zsh"
