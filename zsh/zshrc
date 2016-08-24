@@ -144,3 +144,9 @@ source "$ZSH/autosuggestions/zsh-autosuggestions.zsh"
 source "$ZSH/syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$ZSH/history-substring-search/zsh-history-substring-search.zsh"
 
+# History Substring Search Keybindings
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
