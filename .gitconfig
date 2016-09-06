@@ -1,0 +1,3 @@
+[filter "gpg"]
+	smudge = "gpg --decrypt"
+	clean = "gpg --encrypt --armor --recipient 0x94D68C8E1222AA9472D58B35354B6223E89E796F"
