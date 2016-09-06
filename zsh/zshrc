@@ -30,6 +30,11 @@ bindkey '^[[3~' delete-char              # Delete
 bindkey '^[[4~' end-of-line              # End
 bindkey '^[[5~' history-search-backward  # PageUp
 bindkey '^[[6~' history-search-forward   # PageDown
+
+# Alternative bindings for urxvt
+bindkey '^[[7~' beginning-of-line        # Home
+bindkey '^[[8~' end-of-line              # End
+
 bindkey '^?' backward-delete-char        # Backspace
 bindkey '^H' backward-delete-char        # Backspace
 
