@@ -34,3 +34,9 @@
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "urxvt/extensions/fullscreen"]
+	path = urxvt/extensions/fullscreen
+	url = https://aur.archlinux.org/urxvt-fullscreen.git
+[submodule "urxvt/extensions/resize-font"]
+	path = urxvt/extensions/resize-font
+	url = https://github.com/simmel/urxvt-resize-font

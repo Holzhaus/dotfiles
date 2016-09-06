@@ -30,3 +30,4 @@ URxvt.scrollTtyKeypress :   true
 ! Include Stuff
 #include "themes/material.xrdb"
 #include "fonts.xrdb"
+#include "extensions.xrdb"
