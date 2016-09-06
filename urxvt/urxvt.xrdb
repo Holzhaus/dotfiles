@@ -1,0 +1,32 @@
+! General Settings
+URxvt.geometry: 80x30
+URxvt*borderLess: false
+
+! Dont be so slow...
+URxvt*skipBuiltinGlyphs: true
+URxvt.buffered: true
+
+! Transparency
+urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0200/c800
+URxvt*inheritPixmap: true
+URxvt*tintColor: white
+URxvt*shading: 80
+URxvt*transparent: true
+
+! Scrolling
+URxvt*scrollBar_right: false
+URxvt*scrollBar: false
+URxvt.scrollstyle:  plain
+URxvt.scrollBar:    false
+URxvt.jumpScroll:   true
+URxvt.skipScroll:   true
+URxvt.secondaryWheel  : true
+URxvt.secondaryScreen : true
+URxvt.scrollTtyOutput   :   false
+URxvt.scrollWithBuffer  :   true
+URxvt.scrollTtyKeypress :   true
+
+! Include Stuff
+#include "themes/material.xrdb"
+#include "fonts.xrdb"
