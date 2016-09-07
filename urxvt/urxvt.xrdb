@@ -9,10 +9,10 @@ URxvt.buffered: false
 ! Transparency
 urxvt*depth: 32
 !urxvt*background: rgba:0000/0000/0200/c800
-URxvt*inheritPixmap: true
+URxvt*inheritPixmap: false
 URxvt*tintColor: white
-URxvt*shading: 80
-URxvt*transparent: true
+URxvt*shading: 100
+URxvt*transparent: false
 
 ! Scrolling
 URxvt*scrollBar_right: false
