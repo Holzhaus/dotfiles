@@ -4,7 +4,7 @@ URxvt*borderLess: false
 
 ! Dont be so slow...
 URxvt*skipBuiltinGlyphs: true
-URxvt.buffered: true
+URxvt.buffered: false
 
 ! Transparency
 urxvt*depth: 32
