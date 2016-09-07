@@ -6,6 +6,12 @@ export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
 
+# load less pager config
+if [[ -r "$HOME/.lessrc" ]]; then
+    source "$HOME/.lessrc"
+fi
+
+# setup ruby gem path
 if command -v 'ruby' >/dev/null 2>&1; then
     export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi

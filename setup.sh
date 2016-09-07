@@ -1,8 +1,9 @@
 #!/bin/sh
 DOTFILES="$(dirname "$0")"
 
-# ZSH
+# ZSH + misc stuff
 ln -s "$DOTFILES/zsh/zshrc"            "$HOME/.zshrc"
+ln -s "$DOTFILES/lessrc"               "$HOME/.lessrc"
 
 # VIM
 ln -s "$DOTFILES/vim"                  "$HOME/.vim"
