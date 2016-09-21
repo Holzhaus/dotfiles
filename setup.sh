@@ -19,3 +19,6 @@ ln -s "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 # rxvt-unicode
 ln -s "$DOTFILES/urxvt"                "$HOME/.urxvt"
 ln -s "$DOTFILES/Xresources"           "$HOME/.Xresources"
+
+# Termite
+ln -s "$DOTFILES/termite"              "$HOME/.config/termite"
