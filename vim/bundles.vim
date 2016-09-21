@@ -19,6 +19,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomasr/molokai'
 Plugin 'benmills/vimux'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
