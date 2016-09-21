@@ -40,3 +40,9 @@
 [submodule "urxvt/extensions/resize-font"]
 	path = urxvt/extensions/resize-font
 	url = https://github.com/simmel/urxvt-resize-font
+[submodule "vim/bundle/vimux"]
+	path = vim/bundle/vimux
+	url = https://github.com/benmills/vimux
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
