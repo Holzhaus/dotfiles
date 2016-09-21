@@ -55,6 +55,7 @@ symlink "$DOTFILES/tmux"                 "$HOME/.tmux"
 symlink "$HOME/.tmux/tmux.conf"          "$HOME/.tmux.conf"
 
 # GIT
+symlink "$DOTFILES/git/gitconfig"        "$HOME/.gitconfig"
 symlink "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 
 # rxvt-unicode
