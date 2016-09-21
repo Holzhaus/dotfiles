@@ -1,24 +1,65 @@
 #!/bin/sh
-DOTFILES="$(dirname "$0")"
+abspath() {
+    olddir=$(pwd)
+    if [[ -d "$1" ]]; then
+        cd "$1"
+        echo "$(pwd -P)"
+    else
+        cd "$(dirname "$1")"
+        echo "$(pwd -P)/$(basename "$1")"
+    fi
+    cd "$olddir"
+}
+
+: "${HOME?Need to set HOME}"
+DOTFILES="$(abspath "$(dirname "$0")")"
+
+# Logging
+exec 3>&1
+log ()
+{
+    echo "$1" 1>&3
+}
+
+# Installation
+symlink() {
+    if [ -L "$2" ]; then
+    # FIXME: readlink -m is not POSIX compliant
+        if [ "$(readlink -m "$2")" != "$1" ]; then
+            log "Deleting old symlink '$2' (pointed to '$(readlink "$2")')"
+            rm "$2"
+            ln -s "$1" "$2"
+        fi
+    elif [ ! -e "$2" ]; then
+       log "File '$2' does not exist, creating symlink..."
+       ln -s "$1" "$2"
+    elif [ -e "$2" -a ! -e "$2.old" ]; then
+        log "Creating Backup for '$2' -> '$2.old'"
+        mv "$2" "$2.old"
+        ln -s "$1" "$2"
+    else
+        log "Unable to install '$2'"
+    fi
+}
 
 # ZSH + misc stuff
-ln -s "$DOTFILES/zsh/zshrc"            "$HOME/.zshrc"
-ln -s "$DOTFILES/lessrc"               "$HOME/.lessrc"
+symlink "$DOTFILES/zsh/zshrc"            "$HOME/.zshrc"
+symlink "$DOTFILES/lessrc"               "$HOME/.lessrc"
 
 # VIM
-ln -s "$DOTFILES/vim"                  "$HOME/.vim"
-ln -s "$HOME/.vim/vimrc"               "$HOME/.vimrc"
+symlink "$DOTFILES/vim"                  "$HOME/.vim"
+symlink "$HOME/.vim/vimrc"               "$HOME/.vimrc"
 
 # Tmux
-ln -s "$DOTFILES/tmux"                 "$HOME/.tmux"
-ln -s "$HOME/.tmux/tmux.conf"          "$HOME/.tmux.conf"
+symlink "$DOTFILES/tmux"                 "$HOME/.tmux"
+symlink "$HOME/.tmux/tmux.conf"          "$HOME/.tmux.conf"
 
 # GIT
-ln -s "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
+symlink "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 
 # rxvt-unicode
-ln -s "$DOTFILES/urxvt"                "$HOME/.urxvt"
-ln -s "$DOTFILES/Xresources"           "$HOME/.Xresources"
+symlink "$DOTFILES/urxvt"                "$HOME/.urxvt"
+symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
 
 # Termite
-ln -s "$DOTFILES/termite"              "$HOME/.config/termite"
+symlink "$DOTFILES/termite"              "$HOME/.config/termite"
