@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'scrooloose/syntastic'
+Plugin 'neomake/neomake'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'

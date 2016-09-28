@@ -26,9 +26,9 @@
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 	shallow = true
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/neomake"]
+	path = vim/bundle/neomake
+	url = https://github.com/neomake/neomake
 	shallow = true
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
