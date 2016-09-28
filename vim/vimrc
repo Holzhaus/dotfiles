@@ -97,7 +97,7 @@ highlight ColorColumn ctermbg=235
 
 " Scroll faster
 nnoremap <C-e> 3<C-e>
-snoremap C-y> 3<C-y>
+nnoremap <C-y> 3<C-y>
 
 
 " Better copy & paste
