@@ -48,7 +48,8 @@ symlink "$DOTFILES/lessrc"               "$HOME/.lessrc"
 
 # VIM
 symlink "$DOTFILES/vim"                  "$HOME/.vim"
-symlink "$HOME/.vim/vimrc"               "$HOME/.vimrc"
+symlink "$HOME/.vim/init.vim"            "$HOME/.vimrc"
+symlink "$HOME/.vim"                     "$HOME/.config/nvim"
 
 # Tmux
 symlink "$DOTFILES/tmux"                 "$HOME/.tmux"
