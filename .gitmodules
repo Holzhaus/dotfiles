@@ -58,10 +58,6 @@
 	path = vim/bundle/vimux
 	url = https://github.com/benmills/vimux
 	shallow = true
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
-	shallow = true
 [submodule "vim/bundle/vim-better-whitespace"]
 	path = vim/bundle/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
