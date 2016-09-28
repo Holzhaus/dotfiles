@@ -19,6 +19,11 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomasr/molokai'
 Plugin 'benmills/vimux'
 Plugin 'ntpeters/vim-better-whitespace'
+if has("python3") && has("nvim")
+    Plugin 'Shougo/deoplete.nvim'
+    Plugin 'zchee/deoplete-jedi'
+    Plugin 'zchee/deoplete-clang'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

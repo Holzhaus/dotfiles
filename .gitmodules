@@ -62,3 +62,15 @@
 	path = vim/bundle/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
 	shallow = true
+[submodule "vim/bundle/deoplete.nvim"]
+	path = vim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+	shallow = true
+[submodule "vim/bundle/deoplete-jedi"]
+	path = vim/bundle/deoplete-jedi
+	url = https://github.com/zchee/deoplete-jedi
+	shallow = true
+[submodule "vim/bundle/deoplete-clang"]
+	path = vim/bundle/deoplete-clang
+	url = https://github.com/zchee/deoplete-clang
+	shallow = true
