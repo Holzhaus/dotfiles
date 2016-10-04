@@ -43,6 +43,7 @@ augroup END
 " Enable syntax highlighting
 filetype plugin on
 syntax on
+set omnifunc=syntaxcomplete#Complete
 
 " Color scheme
 try

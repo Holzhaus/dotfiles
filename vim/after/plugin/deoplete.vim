@@ -4,6 +4,11 @@ if exists('g:loaded_deoplete')
     if !exists('g:deoplete#omni#input_patterns')
         let g:deoplete#omni#input_patterns = {}
     endif
+    if exists('g:JavaComplete_PluginLoaded')
+        let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
+    endif
+
+    let g:deoplete#file#enable_buffer_path = 1
 
     " Disable auto-complete
     " let g:deoplete#disable_auto_complete = 1

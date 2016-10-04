@@ -18,6 +18,7 @@ if has("python3") && has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'
     Plug 'zchee/deoplete-clang'
+    Plug 'artur-shaik/vim-javacomplete2'
 endif
 
 " All of your Plugs must be added before the following line
