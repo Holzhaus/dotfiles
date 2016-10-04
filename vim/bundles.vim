@@ -2,36 +2,23 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'neomake/neomake'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tomasr/molokai'
-Plugin 'benmills/vimux'
-Plugin 'ntpeters/vim-better-whitespace'
+call plug#begin('~/.vim/bundle')
+Plug 'tpope/vim-fugitive'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasr/molokai'
+Plug 'benmills/vimux'
+Plug 'ntpeters/vim-better-whitespace'
 if has("python3") && has("nvim")
-    Plugin 'Shougo/deoplete.nvim'
-    Plugin 'zchee/deoplete-jedi'
-    Plugin 'zchee/deoplete-clang'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-clang'
 endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+" All of your Plugs must be added before the following line
+call plug#end()            " required

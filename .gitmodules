@@ -22,3 +22,6 @@
 	path = urxvt/extensions/resize-font
 	url = https://github.com/simmel/urxvt-resize-font
 	shallow = true
+[submodule "vim/vim-plug"]
+	path = vim/vim-plug
+	url = https://github.com/junegunn/vim-plug

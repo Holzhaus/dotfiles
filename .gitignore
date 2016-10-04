@@ -1,6 +1,9 @@
 # Vim tempfiles
 .*.swp
 
+# Vim Bundles
+vim/bundle/*
+
 # Mutt
 mutt/cache/*
 mutt/mail/*
