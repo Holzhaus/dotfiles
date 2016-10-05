@@ -55,10 +55,10 @@ catch /^Vim\%((\a\+)\)\=:E185/
     " Nothing to do here
 endtry
 
-highlight Statement cterm=italic
-highlight Conditional cterm=italic
-highlight Comment cterm=italic
-highlight SpecialComment cterm=italic
+" highlight Statement cterm=italic
+" highlight Conditional cterm=italic
+" highlight Comment cterm=italic
+" highlight SpecialComment cterm=italic
 
 " Folding
 set foldmethod=indent
