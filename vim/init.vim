@@ -51,6 +51,8 @@ try
     highlight Normal ctermbg=NONE
     highlight Visual ctermbg=232
     "highlight NonText ctermbg=234
+catch /^Vim\%((\a\+)\)\=:E185/
+    " Nothing to do here
 endtry
 
 highlight Statement cterm=italic
