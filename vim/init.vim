@@ -138,3 +138,8 @@ if executable('xmlstarlet')
     au FileType xml setlocal equalprg=xmlstarlet\ fo\ -R\ -\ 2>/dev/null
     au FileType html setlocal equalprg=xmlstarlet\ fo\ -R\ -H\ -\ 2>/dev/null
 endif
+
+" UltiSnips keymaps will be defined later
+let g:UltiSnipsExpandTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<NOP>"
