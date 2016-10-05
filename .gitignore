@@ -7,3 +7,6 @@ vim/bundle/*
 # Mutt
 mutt/cache/*
 mutt/mail/*
+
+# cmus
+cmus/*

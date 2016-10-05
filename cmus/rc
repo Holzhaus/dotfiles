@@ -1,0 +1,10 @@
+cd ~
+
+set mouse=false
+set show_current_bitrate=true
+set replaygain=track-preferred
+
+set format_playlist=%2D %3n %-30%t %-20%a %-20%A %-20%l %= %y %d %{?X!=0?%3X ?    }
+set format_playlist_va=%2D %3n %-30%t %-20%a %-20%A %-20%l %= %y %d %{?X!=0?%3X ?    }
+
+source ~/.config/cmus/themes/tomorrow.theme
