@@ -125,14 +125,6 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 vnoremap < <gv
 vnoremap > >gv
 
-" Trim trailing whitespace
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-command! TrimWhitespace call TrimWhitespace()
-
 " Auto Formatting
 if executable('xmlstarlet')
     au FileType xml setlocal equalprg=xmlstarlet\ fo\ -R\ -\ 2>/dev/null
