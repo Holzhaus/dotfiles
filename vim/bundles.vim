@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
 Plug 'benmills/vimux'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-surround'
 if has("python3") && has("nvim")
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
