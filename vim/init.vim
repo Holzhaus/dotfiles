@@ -48,8 +48,8 @@ set omnifunc=syntaxcomplete#Complete
 " Color scheme
 try
     colorscheme molokai
-    highlight Normal ctermbg=NONE
-    highlight Visual ctermbg=232
+    "highlight Normal ctermbg=230
+    highlight Visual ctermbg=237
     "highlight NonText ctermbg=234
 catch /^Vim\%((\a\+)\)\=:E185/
     " Nothing to do here
