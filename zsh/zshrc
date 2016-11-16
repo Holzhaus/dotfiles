@@ -17,6 +17,8 @@ if [[ -r "$HOME/.lessrc" ]]; then
     source "$HOME/.lessrc"
 fi
 
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
 # setup ruby gem path
 if command -v 'ruby' >/dev/null 2>&1; then
     export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
@@ -164,7 +166,7 @@ compdef _gnu_generic gdb
 
 source "$ZSH/aliases.zsh"
 source "$ZSH/theme.zsh"
-source "$ZSH/vim-delimiters.zsh"
+#source "$ZSH/vim-delimiters.zsh"
 source "$ZSH/colored-man-pages.zsh"
 source "$ZSH/git-prompt/git_prompt.zsh"
 source "$ZSH/autosuggestions/zsh-autosuggestions.zsh"
