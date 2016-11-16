@@ -28,6 +28,6 @@ URxvt.scrollWithBuffer  :   true
 URxvt.scrollTtyKeypress :   true
 
 ! Include Stuff
-#include "themes/material.xrdb"
+#include "themes/fluid.xrdb"
 #include "fonts.xrdb"
 #include "extensions.xrdb"
