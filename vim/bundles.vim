@@ -17,7 +17,7 @@ Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
-Plug 'benmills/vimux'
+Plug 'tpope/vim-dispatch'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 if has("python3") && has("nvim")
