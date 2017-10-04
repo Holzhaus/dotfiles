@@ -1,19 +1,25 @@
 if exists('g:loaded_deoplete')
-    " Use deoplete.
     let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_smart_case = 1
+
+    inoremap <expr><C-h>
+          \ deolete#mappings#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS>
+          \ deoplete#mappings#smart_close_popup()."\<C-h>"
+
     if !exists('g:deoplete#omni#input_patterns')
         let g:deoplete#omni#input_patterns = {}
     endif
+
     if exists('g:JavaComplete_PluginLoaded')
         let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
     endif
 
-    let g:deoplete#file#enable_buffer_path = 1
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
+    " Set minimum syntax keyword length.
+    let g:deoplete#sources#syntax#min_keyword_length = 2
 
-    " Disable auto-complete
-    " let g:deoplete#disable_auto_complete = 1
-    inoremap <expr><C-n> deoplete#mappings#manual_complete()
+    let g:deoplete#sources#jedi#show_docstring = 1
 
-    " Automaticcaly close scratch window when finishing complete
-    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    call deoplete#enable()
 endif
