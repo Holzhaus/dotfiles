@@ -70,6 +70,9 @@ symlink "$DOTFILES/bash/bashrc"          "$HOME/.bashrc"
 symlink "$DOTFILES/bash/bash_logout"     "$HOME/.bash_logout"
 symlink "$DOTFILES/bash/bash_profile"    "$HOME/.bash_profile"
 
+# i3-gaps config
+symlink "$DOTFILES/i3"                   "$HOME/.i3"
+
 # inputrc
 symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 
