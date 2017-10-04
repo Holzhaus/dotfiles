@@ -150,7 +150,3 @@ let g:netrw_sort_sequence = '[\/]$,*'  " Sorting: Show directories first
 set autochdir
 nnoremap <F3> :Lexplore<CR>
 
-" UltiSnips keymaps will be defined later
-let g:UltiSnipsExpandTrigger = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<NOP>"

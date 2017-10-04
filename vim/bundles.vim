@@ -21,7 +21,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 if has("python3") && has("nvim")
-    Plug 'SirVer/ultisnips'
+    Plug 'Shougo/neosnippet.vim'
+    Plug 'Shougo/neosnippet-snippets'
     Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', { 'do': function('UpdateRPlugin') }
     Plug 'zchee/deoplete-jedi'
