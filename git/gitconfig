@@ -30,3 +30,6 @@
 
 [color "branch"]
 	remote = yellow
+
+[credential]
+	helper = libsecret
