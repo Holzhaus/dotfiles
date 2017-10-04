@@ -27,7 +27,7 @@ if has("python3") && has("nvim")
     Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', { 'do': function('UpdateRPlugin') }
     Plug 'zchee/deoplete-jedi'
-    Plug 'zchee/deoplete-clang'
+    Plug 'tweekmonster/deoplete-clang2'
     Plug 'artur-shaik/vim-javacomplete2'
 endif
 
