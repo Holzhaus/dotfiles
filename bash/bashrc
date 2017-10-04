@@ -10,7 +10,7 @@
 
 # Get current branch in git repo
 function get_git_branch() {
-    BRANCH="$([[ "$(git branch --no-color)" =~ \*\ ([[:graph:]]+) ]] && printf "${BASH_REMATCH[1]}")"
+    BRANCH="$([[ "$(git branch --no-color 2>/dev/null)" =~ \*\ ([[:graph:]]+) ]] && printf "${BASH_REMATCH[1]}")"
     if [ ! "${BRANCH}" == "" ]
     then
         STATUS=$(get_git_status)
