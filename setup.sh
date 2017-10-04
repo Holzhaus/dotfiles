@@ -61,6 +61,11 @@ symlink "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 
 # rxvt-unicode
 symlink "$DOTFILES/urxvt"                "$HOME/.urxvt"
+
+# rofi
+symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
+
+# Xresources
 symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
 
 # Termite

@@ -1,1 +1,2 @@
 #include ".urxvt/urxvt.xrdb"
+#include ".rofi/rofi.xrdb"

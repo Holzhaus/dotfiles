@@ -1,0 +1,10 @@
+rofi.font: Inconsolata 10
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #1d1f21, #ecefe1, #5b5b5b
+rofi.color-normal: #1d1f21, #c5c8c6, #1d1f21, #03a9f4, #ecefe1
+rofi.color-active: #1d1f21, #009688, #1d1f21, #009688, #1d1f21
+rofi.color-urgent: #1d1f21, #e91e63, #1d1f21, #e91e63, #1d1f21
