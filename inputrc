@@ -1,0 +1,55 @@
+# Use Vi, not Emacs, style editing
+set editing-mode vi
+
+# Show all completions as soon as I press tab, even if there's more than one
+set show-all-if-ambiguous on
+
+# Ignore case
+set completion-ignore-case on
+
+# on menu-complete, first display the common prefix, then cycle through the
+# options when hitting TAB
+set menu-complete-display-prefix on
+
+
+# Keymaps for when we're in command mode (e.g., after hitting ESC)
+set keymap vi-command
+
+# Insert the arguments from the last command
+"p": "i !!*\r"
+
+# Vi(m) keybindings for history navigation
+"g": beginning-of-history
+"G": end-of-history
+"j": history-search-forward
+"k": history-search-backward
+
+# Use Pos1 / End to navigate line, too
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# When hitting option-up/option-down, cycle through the previous commands
+# which start with the prefix you've entered, rather than just cycling through
+# the last entered commands.
+#"\e[A": history-search-backward
+#"\e[B": history-search-forward
+
+set keymap vi-insert
+
+# Pressing tab will list all completions & select the first one. Pressing it
+# again will cycle through available completions.
+TAB: menu-complete
+
+# Shift-TAB cycles completions backward
+"\e[Z": menu-complete-backward
+
+# Option-up/option-down should also apply to insert mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Use Pos1 / End for line navigation
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+# Needed because binding 'p' in command mode above wipes its insert mode
+# function, too. This fixes that, and will insert 'p' when you type 'p'.
+"p": self-insert

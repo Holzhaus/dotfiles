@@ -70,6 +70,9 @@ symlink "$DOTFILES/bash/bashrc"          "$HOME/.bashrc"
 symlink "$DOTFILES/bash/bash_logout"     "$HOME/.bash_logout"
 symlink "$DOTFILES/bash/bash_profile"    "$HOME/.bash_profile"
 
+# inputrc
+symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
+
 # Python
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 
