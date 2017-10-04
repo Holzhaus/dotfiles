@@ -62,6 +62,9 @@ symlink "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 # rxvt-unicode
 symlink "$DOTFILES/urxvt"                "$HOME/.urxvt"
 
+# alacritty
+symlink "$DOTFILES/alacritty"            "$HOME/.config/alacritty"
+
 # rofi
 symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
