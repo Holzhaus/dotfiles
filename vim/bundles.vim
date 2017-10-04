@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+if exists('g:loaded_plug')
 " Neovim rplugin update
 function! UpdateRPlugin(info)
   if has('nvim')
@@ -33,3 +34,4 @@ endif
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
+endif
