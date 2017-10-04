@@ -78,12 +78,18 @@ set hlsearch
 " Better command-line completion
 set wildmenu
 
+" Complete longest common string on first, then first match on second keypress
+set wildmode=longest:full,full
+
 " Show partial commands in the last line of the screen
 set showcmd
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
+
+" Indentation-aware line wrapping
+set breakindent
 
 " Use visual bell instead of beeping when doing something wrong
 set novisualbell
@@ -93,8 +99,8 @@ set number
 set norelativenumber
 
 " Highlight Column
-"set colorcolumn=80
-let &colorcolumn=join(range(81,999),",")
+set colorcolumn=80
+"let &colorcolumn=join(range(81,999),",")
 "highlight ColorColumn ctermbg=235
 highlight ColorColumn ctermbg=235
 
@@ -102,6 +108,8 @@ highlight ColorColumn ctermbg=235
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" Only highlight the first 200 chars of a file (Performance)
+set synmaxcol=200
 
 " Better copy & paste
 set pastetoggle=<F2>
@@ -116,7 +124,8 @@ set expandtab
 
 " Show Tabs and EOL
 set list
-set listchars=tab:▹\ 
+set listchars=tab:▹\ ,space:·,nbsp:␣
+set showbreak=↪\ 
 
 " Better colors when matching braces
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
