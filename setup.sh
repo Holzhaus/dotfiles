@@ -65,6 +65,9 @@ symlink "$DOTFILES/urxvt"                "$HOME/.urxvt"
 # alacritty
 symlink "$DOTFILES/alacritty"            "$HOME/.config/alacritty"
 
+# Python
+symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
+
 # rofi
 symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
