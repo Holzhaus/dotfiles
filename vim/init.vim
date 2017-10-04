@@ -73,6 +73,9 @@ set lazyredraw
 " Real time regex highlighting
 set incsearch
 set hlsearch
+if has("nvim")
+    set inccommand=split
+endif
 
 " Better command-line completion
 set wildmenu
