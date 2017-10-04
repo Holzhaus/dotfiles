@@ -73,6 +73,9 @@ symlink "$DOTFILES/bash/bash_profile"    "$HOME/.bash_profile"
 # inputrc
 symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 
+# ncmpcpp
+symlink "$DOTFILES/ncmpcpp"              "$HOME/.config/ncmpcpp"
+
 # Python
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 
