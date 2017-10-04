@@ -20,7 +20,6 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-dispatch'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 if has("python3") && has("nvim")
     Plug 'Shougo/neosnippet.vim'
