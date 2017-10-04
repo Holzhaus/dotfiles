@@ -42,8 +42,7 @@ symlink() {
     fi
 }
 
-# ZSH + misc stuff
-symlink "$DOTFILES/zsh/zshrc"            "$HOME/.zshrc"
+# Less
 symlink "$DOTFILES/lessrc"               "$HOME/.lessrc"
 
 # VIM
