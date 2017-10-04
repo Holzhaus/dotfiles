@@ -80,6 +80,3 @@ symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
 # Xresources
 symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
-
-# Termite
-symlink "$DOTFILES/termite"              "$HOME/.config/termite"
