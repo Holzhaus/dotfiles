@@ -146,6 +146,10 @@ let g:netrw_winsize = 15
 set autochdir
 nnoremap <F3> :Lexplore<CR>
 
+" Persistent undo
+set undofile
+set undodir=~/.vim/undodir
+
 " Airline settings
 let g:airline_theme = 'murmur'
 let g:airline_powerline_fonts = 0
