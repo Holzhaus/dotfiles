@@ -1,0 +1,134 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Source bash completion
+[[ -r /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+
+# Get current branch in git repo
+function get_git_branch() {
+    BRANCH="$([[ "$(git branch --no-color)" =~ \*\ ([[:graph:]]+) ]] && printf "${BASH_REMATCH[1]}")"
+    if [ ! "${BRANCH}" == "" ]
+    then
+        STATUS=$(get_git_status)
+        printf "[%s%s]" "${BRANCH}" "${STATUS}"
+    fi
+}
+
+# Get current status of git repo
+function get_git_status {
+    FLAG_RENAMED=1
+    FLAG_MODIFIED=$((1<<1))
+    FLAG_ADDED=$((1<<2))
+    FLAG_DELETED=$((1<<3))
+    FLAG_COPIED=$((1<<4))
+    FLAG_UNTRACKED=$((1<<5))
+    flags=0
+    while read -r line; do
+        [[ "${line:0:2}" =~ ^.?R.?$ ]] && (( flags |= ${FLAG_RENAMED} ))
+        [[ "${line:0:2}" =~ ^.?A.?$ ]] && (( flags |= ${FLAG_ADDED} ))
+        [[ "${line:0:2}" =~ ^.?D.?$ ]] && (( flags |= ${FLAG_DELETED} ))
+        [[ "${line:0:2}" =~ ^.?C.?$ ]] && (( flags |= ${FLAG_COPIED} ))
+        [[ "${line:0:2}" =~ ^.?M.?$ ]] && (( flags |= ${FLAG_MODIFIED} ))
+        [[ "${line:0:2}" =~ ^\?\?$ ]] && (( flags |= ${FLAG_UNTRACKED} ))
+    done <<< "$(git status --porcelain 2>/dev/null)"
+    (( ${flags} & ${FLAG_RENAMED} )) && printf ">"
+    (( ${flags} & ${FLAG_MODIFIED} )) && printf "*"
+    (( ${flags} & ${FLAG_ADDED} )) && printf "+"
+    (( ${flags} & ${FLAG_DELETED} )) && printf "-"
+    (( ${flags} & ${FLAG_COPIED} )) && printf "~"
+    (( ${flags} & ${FLAG_UNTRACKED} )) && printf "?"
+}
+
+# Set the shell prompt
+#PS1='[\u@\h \W]\$ '
+if command -v "git" >/dev/null 2>&1; then
+    export PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[35m\]\`get_git_branch\`\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
+else
+    export PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
+fi
+
+# Use a big shared history
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+export HISTCONTROL=ignorespace:ignoredups
+export HISTFILE=~/.bash_history_full
+export PROMPT_COMMAND="builtin history -a ; builtin history -c ; builtin history -r"
+
+# Use nvim/vim/vi as default editor
+if command -v "nvim" >/dev/null 2>&1; then
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+    alias vim="nvim"
+else
+    if command -v "vim" >/dev/null 2>&1; then
+        export EDITOR="vim"
+        export VISUAL="vim"
+    else
+        export EDITOR="vi"
+        export VISUAL="vi"
+    fi
+fi
+
+# Use less as pager
+if command -v "less" >/dev/null 2>&1; then
+    export PAGER="less"
+fi
+
+# Load less pager config
+if [[ -r "$HOME/.lessrc" ]]; then
+    source "$HOME/.lessrc"
+fi
+
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+# Setup python startup config
+export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+# Setup ruby gem path
+if command -v 'ruby' >/dev/null 2>&1; then
+    export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+fi
+
+# Colorize directory listings
+alias ls="ls --color=auto"
+
+# Highlight grep matches
+alias grep="grep --color=auto"
+
+# Colored man pages
+if [[ "$OSTYPE" = solaris* ]]
+then
+    if [[ ! -x "$HOME/bin/nroff" ]]
+    then
+        mkdir -p "$HOME/bin"
+        cat > "$HOME/bin/nroff" <<EOF
+#!/bin/sh
+if [ -n "\$_NROFF_U" -a "\$1,\$2,\$3" = "-u0,-Tlp,-man" ]; then
+    shift
+    exec /usr/bin/nroff -u\$_NROFF_U "\$@"
+fi
+#-- Some other invocation of nroff
+exec /usr/bin/nroff "\$@"
+EOF
+        chmod +x "$HOME/bin/nroff"
+    fi
+fi
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;34m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;36m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        PAGER="${commands[less]:-$PAGER}" \
+        _NROFF_U=1 \
+        PATH="$HOME/bin:$PATH" \
+            man "$@"
+}
