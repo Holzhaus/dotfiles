@@ -24,8 +24,9 @@ log ()
 # Installation
 symlink() {
     if [ -L "$2" ]; then
-    # FIXME: readlink -m is not POSIX compliant
-        if [ "$(readlink -m "$2")" != "$1" ]; then
+        # FIXME: We could use readlink's "-m" argument to follow deep symlinks
+        # but it's not POSIX compliant
+        if [ "$(readlink "$2")" != "$1" ]; then
             log "Deleting old symlink '$2' (pointed to '$(readlink "$2")')"
             rm "$2"
             ln -s "$1" "$2"
