@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-if exists('g:loaded_plug')
+if filereadable(expand('~/.vim/autoload/plug.vim'))
 " Neovim rplugin update
 function! UpdateRPlugin(info)
   if has('nvim')
