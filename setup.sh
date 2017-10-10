@@ -76,6 +76,9 @@ symlink "$DOTFILES/i3"                   "$HOME/.i3"
 # inputrc
 symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 
+# LatexMK
+symlink "$DOTFILES/latexmkrc"            "$HOME/.latexmkrc"
+
 # ncmpcpp
 symlink "$DOTFILES/ncmpcpp"              "$HOME/.config/ncmpcpp"
 
