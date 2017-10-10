@@ -36,3 +36,7 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 if command -v 'ruby' >/dev/null 2>&1; then
     export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi
+
+if [ -d "$HOME/.texmf" ]; then
+    export TEXMFHOME="$HOME/.texmf"
+fi
