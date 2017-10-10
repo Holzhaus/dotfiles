@@ -2,5 +2,10 @@
 # ~/.bash_profile
 #
 
-# Source bashrc
-[[ -r ~/.bashrc ]] && . ~/.bashrc
+# Source ~/.profile
+if [ -f ~/.profile ] ; then
+    . ~/.profile
+fi
+
+# Source ~/.bashrc
+case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
