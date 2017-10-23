@@ -67,6 +67,12 @@ alias ls="ls --color=auto"
 # Highlight grep matches
 alias grep="grep --color=auto"
 
+# Use NVIM if available
+if command -v "nvim" >/dev/null 2>&1; then
+    alias vim="nvim"
+fi
+
+
 # Colored man pages
 if [[ "$OSTYPE" = solaris* ]]
 then
