@@ -72,6 +72,10 @@ if command -v "nvim" >/dev/null 2>&1; then
     alias vim="nvim"
 fi
 
+# Use NeoMutt if available
+if command -v "neomutt" >/dev/null 2>&1; then
+    alias mutt="neomutt"
+fi
 
 # Colored man pages
 if [[ "$OSTYPE" = solaris* ]]
