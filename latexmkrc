@@ -1,6 +1,6 @@
-$dvi_previewer = "start xdg-open";
-$pdf_previewer = "start xdg-open";
-$ps_previewer = "start xdg-open";
+$dvi_previewer = "evince";
+$pdf_previewer = "evince";
+$ps_previewer = "evince";
 
 # Add template folder to the search path
 $ENV{'TEXINPUTS'} = '' unless defined $ENV{'TEXINPUTS'};
