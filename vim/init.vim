@@ -153,6 +153,9 @@ nnoremap <F3> :Lexplore<CR>
 set undofile
 set undodir=~/.vim/undodir
 
+" Enable Modelines
+set modeline
+
 " Airline settings
 let g:airline_theme = 'murmur'
 let g:airline_powerline_fonts = 0
