@@ -34,7 +34,7 @@ if ! [ -e "${IMAGE_PATH}" ]; then
             SCREEN_X=${BASH_REMATCH[3]}
             SCREEN_Y=${BASH_REMATCH[4]}
             printf "Found active screen: %s\n" "${BASH_REMATCH[0]}"
-            
+
             TEMP_IMG="${TEMP_DIR}/${SCREEN_WIDTH}x${SCREEN_HEIGHT}.png"
             if ! [ -e "${TEMP_IMG}" ]
             then
@@ -44,10 +44,10 @@ if ! [ -e "${IMAGE_PATH}" ]; then
                     break
                 }
             fi
-        
+
             (( ${IMAGE_WIDTH} < ($SCREEN_WIDTH+$SCREEN_X) )) && IMAGE_WIDTH=$(($SCREEN_WIDTH+$SCREEN_X))
             (( ${IMAGE_HEIGHT} < ($SCREEN_HEIGHT+$SCREEN_Y) )) && IMAGE_HEIGHT=$(( $SCREEN_HEIGHT+$SCREEN_Y ))
-        
+
             IM_ARGS="${IM_ARGS} ${TEMP_IMG} -geometry +${SCREEN_X}+${SCREEN_Y} -composite"
         fi
     done <<< "$(printf "${XRANDR}")"
