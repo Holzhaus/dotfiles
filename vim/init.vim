@@ -161,4 +161,4 @@ let g:airline_theme = 'murmur'
 let g:airline_powerline_fonts = 0
 
 " CtrlP settings
-    let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlPMixed'
