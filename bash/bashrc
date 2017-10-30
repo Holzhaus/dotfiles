@@ -77,6 +77,10 @@ if command -v "neomutt" >/dev/null 2>&1; then
     alias mutt="neomutt"
 fi
 
+if command -v "git" >/dev/null 2>&1; then
+    alias gwdiff="git diff --no-index --color-words"
+fi
+
 # Colored man pages
 if [[ "$OSTYPE" = solaris* ]]
 then
