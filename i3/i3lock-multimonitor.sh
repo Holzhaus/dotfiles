@@ -4,11 +4,27 @@ if ! [ -e "${CACHE_DIR}" ]; then
     mkdir -p "${CACHE_DIR}"
 fi
 
-if [ "$#" -eq 0 ]; then
-    printf "usage: $0 IMAGE_PATH [ I3LOCK_ARGS ... ]"
+function usage {
+    printf "usage: $0 [-p] IMAGE_PATH [ I3LOCK_ARGS ... ]"
     exit 1
+}
+
+PREPARE_ONLY=0
+
+if [ "$#" -eq 0 ]; then
+    usage
 fi
-ORIGINAL_IMAGE_PATH="$1"
+
+if [ "$1" == "-p" ]; then
+    if [ "$#" -eq 1 ]; then
+        usage
+    fi
+    PREPARE_ONLY=1
+    printf "Flag -p given, only preparing image for later usage...\n"
+    ORIGINAL_IMAGE_PATH="$2"
+else
+    ORIGINAL_IMAGE_PATH="$1"
+fi
 
 if ! [ -e "${ORIGINAL_IMAGE_PATH}" ]; then
     echo "Error: Image '${ORIGINAL_IMAGE_PATH}' not found"
@@ -65,5 +81,7 @@ if ! [ -e "${IMAGE_PATH}" ]; then
     IMAGE_PATH="${ORIGINAL_IMAGE_PATH}"
 fi
 
-printf "Locking screen...\n"
-i3lock -i "${IMAGE_PATH}" "${@:2}"
+if [ "$PREPARE_ONLY" -eq 0 ]; then
+    printf "Locking screen...\n"
+    i3lock -i "${IMAGE_PATH}" "${@:2}"
+fi
