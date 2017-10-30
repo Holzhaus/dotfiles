@@ -29,12 +29,15 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+set $wallpaper $HOME/Bilder/Wallpaper/archlinux-wallpaper-fullhd.jpg
+set $lockscreen $HOME/.i3/LCARS_Computer_Network_by_futurephonic.jpg
+
 # Monitor setup
 bindsym $mod+m exec xrandr --output LVDS --auto --primary --output DisplayPort-2 --off --output VGA-0 --off
 bindsym $mod+shift+m exec xrandr --output LVDS --off --output VGA-0 --mode 1600x900 --output DisplayPort-2 --mode 1680x1050 --primary --right-of VGA-0
 
 # Lockscreen
-exec --no-startup-id "xset s 180 180 && xset dpms 300 1800 3600 && xss-lock -- \"$HOME/.i3/i3lock-multimonitor.sh\" \"$HOME/.i3/LCARS_Computer_Network_by_futurephonic.jpg\" -c 000000 -f -t"
+exec --no-startup-id "xset s 180 180 && xset dpms 300 1800 3600 && xss-lock -- \"$HOME/.i3/i3lock-multimonitor.sh\" \"$lockscreen\" -c 000000 -f -t"
 bindsym $mod+Mod1+l exec "xset s activate"
 #exec --no-startup-id "xscreensaver -no-splash"
 #bindsym $mod+Mod1+l exec "xscreensaver-command --lock"
@@ -235,7 +238,7 @@ set $tag3 "3: Code"
 exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id setxkbmap de
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale $HOME/Bilder/Wallpaper/archlinux-wallpaper-fullhd.jpg --bg-scale $HOME/Bilder/Wallpaper/archlinux-wallpaper-fullhd.jpg
+exec --no-startup-id feh --bg-scale "$wallpaper" --bg-scale "$wallpaper"
 exec dex -ae i3
 
 
