@@ -19,7 +19,7 @@ XRANDR="$(xrandr -q)"
 CHECKSUM="$(cat "${ORIGINAL_IMAGE_PATH}" <(printf "${XRANDR}") | md5sum -)"
 IMAGE_PATH="${CACHE_DIR}/${CHECKSUM%  *}.png"
 
-#if ! [ -e "${IMAGE_PATH}" ]; then
+if ! [ -e "${IMAGE_PATH}" ]; then
     printf "%s does not exist, creating...\n" "${IMAGE_PATH}"
     IMAGE_WIDTH=0
     IMAGE_HEIGHT=0
@@ -58,7 +58,7 @@ IMAGE_PATH="${CACHE_DIR}/${CHECKSUM%  *}.png"
         convert "${TEMP_IMG}" ${IM_ARGS} "${TEMP_IMG}"
         mv "${TEMP_IMG}" "${IMAGE_PATH}"
     fi
-#fi
+fi
 
 if ! [ -e "${IMAGE_PATH}" ]; then
     printf "Warning: Image processing failed, using original image.\n"
