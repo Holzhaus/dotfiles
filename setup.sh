@@ -12,6 +12,7 @@ abspath() {
 }
 
 : "${HOME?Need to set HOME}"
+[ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
 DOTFILES="$(abspath "$(dirname "$0")")"
 
 # Logging
@@ -49,7 +50,7 @@ symlink "$DOTFILES/lessrc"               "$HOME/.lessrc"
 # VIM
 symlink "$DOTFILES/vim"                  "$HOME/.vim"
 symlink "$HOME/.vim/init.vim"            "$HOME/.vimrc"
-symlink "$HOME/.vim"                     "$HOME/.config/nvim"
+symlink "$HOME/.vim"                     "$XDG_CONFIG_HOME/nvim"
 
 # Tmux
 symlink "$DOTFILES/tmux"                 "$HOME/.tmux"
@@ -63,7 +64,7 @@ symlink "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 symlink "$DOTFILES/urxvt"                "$HOME/.urxvt"
 
 # alacritty
-symlink "$DOTFILES/alacritty"            "$HOME/.config/alacritty"
+symlink "$DOTFILES/alacritty"            "$XDG_CONFIG_HOME/alacritty"
 
 # Bash
 symlink "$DOTFILES/bash/bashrc"          "$HOME/.bashrc"
@@ -80,7 +81,7 @@ symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 symlink "$DOTFILES/latexmkrc"            "$HOME/.latexmkrc"
 
 # ncmpcpp
-symlink "$DOTFILES/ncmpcpp"              "$HOME/.config/ncmpcpp"
+symlink "$DOTFILES/ncmpcpp"              "$XDG_CONFIG_HOME/ncmpcpp"
 
 # profile
 symlink "$DOTFILES/profile"              "$HOME/.profile"
