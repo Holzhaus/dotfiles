@@ -1,6 +1,6 @@
-$dvi_previewer = "evince";
-$pdf_previewer = "evince";
-$ps_previewer = "evince";
+$dvi_previewer = "zathura";
+$pdf_previewer = "zathura";
+$ps_previewer = "zathura";
 
 # Add template folder to the search path
 $ENV{'TEXINPUTS'} = '' unless defined $ENV{'TEXINPUTS'};
