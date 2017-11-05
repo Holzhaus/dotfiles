@@ -94,3 +94,6 @@ symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
 # Xresources
 symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
+
+# Zathura
+symlink "$DOTFILES/zathura"              "$XDG_CONFIG_HOME/zathura"
