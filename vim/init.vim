@@ -162,3 +162,11 @@ let g:airline_powerline_fonts = 0
 
 " CtrlP settings
 let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Workaround for Git-Fugitive not starting in insert mode
+" See: https://github.com/tpope/vim-fugitive/issues/957
+augroup nvim_term
+  au!
+  au TermOpen * startinsert
+  au TermClose * stopinsert
+augroup END
