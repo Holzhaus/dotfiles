@@ -175,8 +175,10 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Workaround for Git-Fugitive not starting in insert mode
 " See: https://github.com/tpope/vim-fugitive/issues/957
-augroup nvim_term
-  au!
-  au TermOpen * startinsert
-  au TermClose * stopinsert
-augroup END
+if has("nvim")
+    augroup nvim_term
+      au!
+      au TermOpen * startinsert
+      au TermClose * stopinsert
+    augroup END
+endif
