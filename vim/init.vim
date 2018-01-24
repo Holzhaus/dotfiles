@@ -4,6 +4,14 @@ augroup reload_vimrc
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
+if has("multi_byte")
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8
+endif
+
 " Load my plugins
 if filereadable(expand("~/.vim/bundles.vim"))
     source ~/.vim/bundles.vim
@@ -124,9 +132,11 @@ set tabstop=4
 set expandtab
 
 " Show Tabs and EOL
-set list
-set listchars=tab:▹\ ,space:·,nbsp:␣
-set showbreak=↪\ 
+if has("multi_byte") && &termencoding == "utf-8"
+    set list
+    set listchars=tab:▹\ ,space:·,nbsp:␣
+    set showbreak=↪\ 
+endif
 
 " Better colors when matching braces
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
