@@ -74,6 +74,9 @@ symlink "$DOTFILES/bash/bash_profile"    "$HOME/.bash_profile"
 # i3-gaps config
 symlink "$DOTFILES/i3"                   "$HOME/.i3"
 
+# compton
+symlink "$DOTFILES/compton/compton.conf" "$HOME/.compton.conf"
+
 # inputrc
 symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 
