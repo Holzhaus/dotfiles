@@ -238,7 +238,7 @@ set $tag3 "3: Code"
 exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id setxkbmap de
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale "$wallpaper" --bg-scale "$wallpaper"
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec dex -ae i3
 

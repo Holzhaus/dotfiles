@@ -86,6 +86,9 @@ symlink "$DOTFILES/latexmkrc"            "$HOME/.latexmkrc"
 # ncmpcpp
 symlink "$DOTFILES/ncmpcpp"              "$XDG_CONFIG_HOME/ncmpcpp"
 
+# nitrogen
+symlink "$DOTFILES/nitrogen"             "$XDG_CONFIG_HOME/nitrogen"
+
 # profile
 symlink "$DOTFILES/profile"              "$HOME/.profile"
 
