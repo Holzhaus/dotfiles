@@ -29,7 +29,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-set $wallpaper $HOME/Bilder/Wallpaper/archlinux-wallpaper-fullhd.jpg
 set $lockscreen $HOME/.i3/lockscreen.jpg
 
 # Monitor setup
