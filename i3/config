@@ -247,8 +247,8 @@ exec dex -ae i3
 #    natural_scroll disabled
 #}
 
-for_window [class="^.*"] border pixel 2
-gaps inner 2
+for_window [class="^.*"] border pixel 1
+gaps inner 3
 gaps outer 0
 
 # Teamviewer support
