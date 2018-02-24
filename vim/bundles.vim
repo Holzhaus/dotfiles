@@ -22,6 +22,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
 if has("python3") && has("nvim")
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
