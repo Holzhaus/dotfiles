@@ -30,7 +30,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 set $wallpaper $HOME/Bilder/Wallpaper/archlinux-wallpaper-fullhd.jpg
-set $lockscreen $HOME/.i3/LCARS_Computer_Network_by_futurephonic.jpg
+set $lockscreen $HOME/.i3/lockscreen.jpg
 
 # Monitor setup
 bindsym $mod+m exec "autorandr --load mobile"
