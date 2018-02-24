@@ -33,8 +33,8 @@ set $wallpaper $HOME/Bilder/Wallpaper/archlinux-wallpaper-fullhd.jpg
 set $lockscreen $HOME/.i3/LCARS_Computer_Network_by_futurephonic.jpg
 
 # Monitor setup
-bindsym $mod+m exec xrandr --output LVDS --auto --primary --output DisplayPort-2 --off --output VGA-0 --off
-bindsym $mod+shift+m exec xrandr --output LVDS --off --output VGA-0 --mode 1600x900 --output DisplayPort-2 --mode 1680x1050 --primary --right-of VGA-0
+bindsym $mod+m exec "autorandr --load mobile"
+bindsym $mod+shift+m exec "autorandr --load docked"
 
 # Lockscreen
 exec --no-startup-id "xset s 180 180 && xset dpms 300 1800 3600 && xss-lock -- \"$HOME/.i3/i3lock-multimonitor.sh\" \"$lockscreen\" -c 000000 -f -t"
