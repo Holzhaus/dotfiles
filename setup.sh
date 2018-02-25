@@ -92,6 +92,9 @@ symlink "$DOTFILES/ncmpcpp"              "$XDG_CONFIG_HOME/ncmpcpp"
 # nitrogen
 symlink "$DOTFILES/nitrogen"             "$XDG_CONFIG_HOME/nitrogen"
 
+# polybar
+symlink "$DOTFILES/polybar"              "$XDG_CONFIG_HOME/polybar"
+
 # profile
 symlink "$DOTFILES/profile"              "$HOME/.profile"
 

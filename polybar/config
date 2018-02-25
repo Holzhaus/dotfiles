@@ -1,0 +1,365 @@
+[colors]
+;background = ${xrdb:color0:#222}
+background = #aa202020
+background-alt = #444
+foreground = #fff
+foreground-alt = #d7d7d7
+success = #0f0
+alert = #f00
+warning = #ff0
+
+[settings]
+screenchange-reload = true
+
+[bar/primary]
+monitor = DisplayPort-2
+monitor-fallback = LVDS
+width = 100%
+height = 22
+
+font-0 = Sans:pixelsize=8;0
+font-1 = symbola:size=9;0
+
+line-color = ${colors.background}
+line-size = 16
+
+override-redirect = false
+wm-restack = i3
+
+spacing = 1
+padding-right = 5
+module-margin = 2
+
+modules-left = i3
+modules-right = mpd wifi eth battery gputemp cputemp cpu date
+
+tray-position = right
+tray-padding = 2
+tray-detached = false
+tray-maxsize = 16
+tray-transparent = ${colors.background}
+tray-offset-x = 0
+tray-offset-y = 0
+;tray-padding = 0
+tray-scale = 1.0
+
+[bar/secondary]
+monitor = VGA-0
+monitor-strict = true
+width = 100%
+height = 22
+
+font-0 = Sans:pixelsize=8;0
+font-1 = symbola:size=9;0
+
+line-color = ${colors.background}
+line-size = 16
+
+#override-redirect = false
+override-redirect = false
+wm-restack = i3
+
+spacing = 1
+padding-right = 5
+module-margin = 2
+
+modules-left = i3
+modules-right = mpd wifi eth battery gputemp cputemp cpu date
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d%
+time = %H:%M
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+;format = 🕓 <label>
+format = <label>
+label = %date% %time%
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <ramp-coreload>
+label = %percentage%%
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-6-foreground = ${colors.alert}
+ramp-coreload-7-foreground = ${colors.alert}
+
+[module/cputemp]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/class/hwmon/hwmon2/temp1_input
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 70
+
+label = CPU: %temperature-c%
+label-warn = CPU: %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+[module/gputemp]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 3
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/class/hwmon/hwmon1/temp1_input
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 70
+
+label = GPU: %temperature-c%
+label-warn = GPU: %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+[module/mpd]
+type = internal/mpd
+host = odroid-c2
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> (<label-time>)
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
+
+; Available tags:
+;   <label-offline>
+;format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = %artist% - %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline = 🎜 mpd is offline
+
+; Only applies if <icon-X> is used
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-consume = ✀
+
+; Used to display the state of random/repeat/repeatone
+; Only applies if <icon-[random|repeat|repeatone]> is used
+toggle-on-foreground = ${colors.foreground}
+toggle-off-foreground = ${colors.foreground-alt}
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 20
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/battery]
+type = internal/battery
+full-at = 95.87
+battery = BAT0
+adapter = AC
+poll-interval = 5
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = ↑ %percentage%% (%time%)
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = ↓ %percentage%% (%time%)
+
+; Available tokens:
+;   %percentage% (default)
+;label-full = ⚡%percentage%%
+label-full =
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-0-foreground = ${colors.warning}
+ramp-capacity-1-foreground = ${colors.alert}
+ramp-capacity-2-foreground = ${colors.alert}
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+[module/eth]
+type = internal/network
+interface = enp1s0
+label-connected =  %local_ip% (%linkspeed%, %upspeed%↑ %downspeed%↓)
+label-connected-foreground = ${colors.success}
+label-disconnected = %ifname% down
+label-disconnected-foreground = ${colors.alert}
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+
+[module/wifi]
+type = internal/network
+interface = wlp3s0b1
+label-connected =  %local_ip% (%signal%% at %essid%, %upspeed%↑ %downspeed%↓)
+label-connected-foreground = ${colors.success}
+label-disconnected = %ifname% down
+label-disconnected-foreground = ${colors.alert}
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+label-mode-padding = 3
+
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 1
+label-visible-foregroud = ${colors.foreground-alt}
+label-visible-padding = 1
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background-alt}
+label-focused-padding = 1
+label-urgent-padding = 1

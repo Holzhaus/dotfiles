@@ -210,32 +210,32 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 # finds out, if available)
 
 bar {
-    #status_command conky -c $HOME/.i3/conky/conkyrc
-    status_command i3status --conig ~/.i3status.conf
-    mode dock
-    position top
-    font pango:open sans 7.8
-    strip_workspace_numbers yes
-
-    colors {
-        # Whole color settings
-        #background #F1F2F6
-        background #202020
-        statusline #F8F8F8
-        separator  #51c4d4
-        focused_workspace  #202020 #444444 #F8F8F8
-        active_workspace   #202020 #444444 #F8F8F8
-        inactive_workspace #202020 #202020 #F8F8F8
-        urgent_workspace   #202020 #202020 #F8F8F8
-
-        # Type             border  background font
-        #focused_workspace  #F1F2F6 #F1F2F6 #4FC0E8
-        #active_workspace   #F1F2F6 #F1F2F6 #4FC0E8
-        #inactive_workspace #F1F2F6 #F1F2F6 #C1D1E0
-        #urgent_workspace   #F1F2F6 #F1F2F6 #C1D1E0
-    }
-    #status_command ~/.i3/measure-net-speed-i3status.sh
-    #font pango: Inconsolata Medium 11
+#    #status_command conky -c $HOME/.i3/conky/conkyrc
+#    status_command i3status --conig ~/.i3status.conf
+#    mode dock
+#    position top
+#    font pango:open sans 7.8
+#    strip_workspace_numbers yes
+#
+#    colors {
+#        # Whole color settings
+#        #background #F1F2F6
+#        background #202020
+#        statusline #F8F8F8
+#        separator  #51c4d4
+#        focused_workspace  #202020 #444444 #F8F8F8
+#        active_workspace   #202020 #444444 #F8F8F8
+#        inactive_workspace #202020 #202020 #F8F8F8
+#        urgent_workspace   #202020 #202020 #F8F8F8
+#
+#        # Type             border  background font
+#        #focused_workspace  #F1F2F6 #F1F2F6 #4FC0E8
+#        #active_workspace   #F1F2F6 #F1F2F6 #4FC0E8
+#        #inactive_workspace #F1F2F6 #F1F2F6 #C1D1E0
+#        #urgent_workspace   #F1F2F6 #F1F2F6 #C1D1E0
+#    }
+#    #status_command ~/.i3/measure-net-speed-i3status.sh
+#    #font pango: Inconsolata Medium 11
 }
 
 font pango:open sans 7.8
@@ -251,6 +251,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id gnome-keyring-daemon --start
+exec --no-startup-id "$HOME/.config/polybar/launch.sh"
 exec dex -ae i3
 
 
