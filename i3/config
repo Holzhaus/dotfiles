@@ -245,7 +245,7 @@ set $tag1 "1: Web"
 set $tag2 "2: Terminal"
 set $tag3 "3: Code"
 
-exec --no-startup-id xrdb -load $HOME/.Xresources
+exec --no-startup-id xrdb -load "$HOME/.Xresources"
 exec --no-startup-id setxkbmap de
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
