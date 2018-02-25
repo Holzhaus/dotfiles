@@ -248,7 +248,6 @@ set $tag3 "3: Code"
 exec --no-startup-id xrdb -load "$HOME/.Xresources"
 exec --no-startup-id setxkbmap de
 exec --no-startup-id nm-applet
-exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id gnome-keyring-daemon --start
 exec --no-startup-id "$HOME/.config/polybar/launch.sh"
