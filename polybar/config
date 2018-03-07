@@ -44,8 +44,8 @@ font-1 = symbola:size=9;0
 foreground = ${colors.foreground}
 background = ${colors.background}
 
-override-redirect = false
-wm-restack = i3
+;override-redirect = true
+;wm-restack = i3
 
 spacing = 1
 padding-right = 5
@@ -76,9 +76,8 @@ font-1 = symbola:size=9;0
 foreground = ${colors.foreground}
 background = ${colors.background}
 
-#override-redirect = false
-override-redirect = false
-wm-restack = i3
+;override-redirect = true
+;wm-restack = i3
 
 spacing = 1
 padding-right = 5
