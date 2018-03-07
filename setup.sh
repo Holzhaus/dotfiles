@@ -104,6 +104,9 @@ symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 # rofi
 symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
+# xinitrc
+symlink "$DOTFILES/xinitrc"              "$HOME/.xinitrc"
+
 # Xresources
 symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
 

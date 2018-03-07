@@ -29,14 +29,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-set $lockscreen $HOME/.i3/lockscreen.jpg
-
 # Monitor setup
 bindsym $mod+m exec "autorandr --load mobile"
 bindsym $mod+shift+m exec "autorandr --load docked"
 
 # Lockscreen
-exec --no-startup-id "xset s 180 180 && xset dpms 300 1800 3600 && xss-lock -- \"$HOME/.i3/i3lock-multimonitor.sh\" \"$lockscreen\" -c 000000 -f -t"
 bindsym $mod+Mod1+l exec "xset s activate"
 #exec --no-startup-id "xscreensaver -no-splash"
 #bindsym $mod+Mod1+l exec "xscreensaver-command --lock"
@@ -236,6 +233,9 @@ bar {
 #    }
 #    #status_command ~/.i3/measure-net-speed-i3status.sh
 #    #font pango: Inconsolata Medium 11
+#
+    status_command ~/.config/polybar/launch.sh
+    mode invisible
 }
 
 font pango:open sans 7.8
@@ -245,13 +245,8 @@ set $tag1 "1: Web"
 set $tag2 "2: Terminal"
 set $tag3 "3: Code"
 
-exec --no-startup-id xrdb -load "$HOME/.Xresources"
-exec --no-startup-id setxkbmap de
-exec --no-startup-id nm-applet
 exec --no-startup-id compton
-exec --no-startup-id gnome-keyring-daemon --start
-exec --no-startup-id "$HOME/.config/polybar/launch.sh"
-exec dex -ae i3
+exec --no-startup-id nm-applet
 
 
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
