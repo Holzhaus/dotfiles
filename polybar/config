@@ -243,7 +243,7 @@ bar-progress-empty = ─
 
 [module/battery]
 type = internal/battery
-full-at = 95.87
+full-at = 99.87
 battery = BAT0
 adapter = AC
 poll-interval = 5
