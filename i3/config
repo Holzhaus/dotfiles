@@ -241,9 +241,9 @@ bar {
 font pango:open sans 7.8
 
 # Name the workspaces
-set $tag1 "1: Web"
-set $tag2 "2: Terminal"
-set $tag3 "3: Code"
+#set $tag1 "1: Web"
+#set $tag2 "2: Terminal"
+#set $tag3 "3: Code"
 
 exec --no-startup-id compton
 exec --no-startup-id nm-applet
