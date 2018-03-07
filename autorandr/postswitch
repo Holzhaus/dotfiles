@@ -1,4 +1,4 @@
 #!/bin/sh
-sleep 2
-nitrogen --restore
-"$HOME/.config/polybar/launch.sh"
+if pgrep "i3" >/dev/null; then
+    #"$HOME/.config/i3/screenchange.sh" &
+fi
