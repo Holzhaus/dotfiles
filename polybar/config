@@ -273,25 +273,24 @@ format-discharging = <ramp-capacity> <label-discharging>
 ;   <label-full> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
-;format-full = <ramp-capacity> <label-full>
+format-full = <label-full>
+label-full = Full
 
 ; Available tokens:
 ;   %percentage% (default)
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging = ↑ %percentage%% (%time%)
+label-charging = %percentage%% (%time%)
 
 ; Available tokens:
 ;   %percentage% (default)
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
-label-discharging = ↓ %percentage%% (%time%)
+label-discharging = %percentage%% (%time%)
 
 ; Available tokens:
 ;   %percentage% (default)
-;label-full = ⚡%percentage%%
-label-full =
-
+;label-full = %percentage%%
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -302,9 +301,10 @@ ramp-capacity-5 = 
 ramp-capacity-6 = 
 ramp-capacity-7 = 
 ramp-capacity-8 = 
-ramp-capacity-0-foreground = ${colors.warning}
+ramp-capacity-0-foreground = ${colors.alert}
 ramp-capacity-1-foreground = ${colors.alert}
-ramp-capacity-2-foreground = ${colors.alert}
+ramp-capacity-2-foreground = ${colors.warning}
+ramp-capacity-3-foreground = ${colors.warning}
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
