@@ -236,6 +236,7 @@ bar {
 #
     status_command ~/.config/polybar/launch.sh
     mode invisible
+    tray_output none
 }
 
 font pango:open sans 7.8
