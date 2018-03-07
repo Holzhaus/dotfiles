@@ -17,4 +17,7 @@ xss-lock -l -- "$HOME/.i3/i3lock-multimonitor.sh" "$HOME/.i3/lockscreen.jpg" -c 
 # Wallpaper
 nitrogen --restore
 
+# Auto-Hide mouse pointer
+( command -v "unclutter" >/dev/null 2>&1 ) && unclutter &
+
 exec i3
