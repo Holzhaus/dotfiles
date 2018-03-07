@@ -87,7 +87,7 @@ padding-right = 5
 module-margin = 2
 
 modules-left = i3
-modules-right = mpd wifi eth battery gputemp cputemp cpu date
+modules-right = mpd date
 
 [module/date]
 type = internal/date
