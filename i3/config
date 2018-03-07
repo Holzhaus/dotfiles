@@ -248,6 +248,7 @@ font pango:open sans 7.8
 
 exec --no-startup-id compton
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift-gtk
 
 
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
