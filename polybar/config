@@ -366,7 +366,7 @@ strip-wsnumbers = false
 ; Sort the workspaces by index instead of the default
 ; sorting that groups the workspaces by output
 ; Default: false
-index-sort = true
+index-sort = false
 
 ; Create click handler used to focus workspace
 ; Default: true
@@ -378,7 +378,7 @@ enable-scroll = true
 
 ; Wrap around when reaching the first/last workspace
 ; Default: true
-wrapping-scroll = false
+wrapping-scroll = true
 
 ; Set the scroll cycle direction 
 ; Default: true
@@ -389,9 +389,9 @@ reverse-scroll = false
 ; Example: code;♚ will apply the icon to all workspaces 
 ; containing 'code' in the label
 ; Default: false
-fuzzy-match = true
+fuzzy-match = false
 
-label-mode-padding = 3
+label-mode-padding = 0
 
 label-unfocused-foreground = ${colors.foreground-alt}
 label-unfocused-padding = 1
