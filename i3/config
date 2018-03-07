@@ -255,8 +255,8 @@ exec --no-startup-id nm-applet
 #}
 
 for_window [class="^.*"] border pixel 1
-gaps inner 3
-gaps outer 0
+gaps inner 5
+gaps outer 5
 
 # Teamviewer support
 for_window [class="TeamViewer.exe"] floating enable
