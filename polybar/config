@@ -53,7 +53,7 @@ padding-right = 5
 module-margin = 2
 
 modules-left = i3
-modules-right = mpd wifi eth battery gputemp cputemp cpu date
+modules-right = wifi eth battery gputemp cputemp cpu date
 
 tray-position = right
 tray-padding = 2
