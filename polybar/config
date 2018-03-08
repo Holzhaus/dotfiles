@@ -197,10 +197,13 @@ format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> (<labe
 ;format-playing = ${self.format-online}
 ;format-paused = ${self.format-online}
 ;format-stopped = ${self.format-online}
+format-stopped = 🎜 mpd is stopped
+format-stopped-foreground = ${colors.warning}
 
 ; Available tags:
 ;   <label-offline>
-;format-offline = <label-offline>
+format-offline = <label-offline>
+format-offline-foreground = ${colors.alert}
 
 ; Available tokens:
 ;   %artist%
