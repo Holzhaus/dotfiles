@@ -212,6 +212,7 @@ format-offline-foreground = ${colors.alert}
 ;   %title%
 ; Default: %artist% - %title%
 label-song = %artist% - %title%
+label-song-foreground = ${colors.success}
 
 ; Available tokens:
 ;   %elapsed%
