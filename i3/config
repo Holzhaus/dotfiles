@@ -34,7 +34,7 @@ bindsym $mod+m exec "autorandr --load mobile"
 bindsym $mod+shift+m exec "autorandr --load docked"
 
 # Lockscreen
-bindsym $mod+Mod1+l exec "xset s activate"
+bindsym $mod+Mod1+l exec "xset dpms force off"
 
 # Color picker
 bindsym $mod+shift+c exec "killall -q gpick ; gpick -p"
