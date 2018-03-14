@@ -63,6 +63,9 @@ catch /^Vim\%((\a\+)\)\=:E185/
     " Nothing to do here
 endtry
 
+" Transparent background
+highlight Normal guibg=NONE ctermbg=NONE
+
 highlight Statement cterm=italic
 highlight Conditional cterm=italic
 " highlight Comment cterm=italic
