@@ -35,8 +35,6 @@ bindsym $mod+shift+m exec "autorandr --load docked"
 
 # Lockscreen
 bindsym $mod+Mod1+l exec "xset s activate"
-#exec --no-startup-id "xscreensaver -no-splash"
-#bindsym $mod+Mod1+l exec "xscreensaver-command --lock"
 
 # Color picker
 bindsym $mod+shift+c exec "killall -q gpick ; gpick -p"
@@ -56,11 +54,6 @@ bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 # bind screen brightness media keys to light
 bindsym XF86MonBrightnessUp exec "light -A 10"
 bindsym XF86MonBrightnessDown exec "light -U 10"
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -192,10 +185,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # colors
-#client.focused #E2E2E2 #f7f7f7 #4FC0E8
-#client.unfocused #D5E7F7 #f7f7f7 #C1D1E0
-#client.focused_inactive #D5E7F7 #f7f7f7 #C1D1E0
-#client.urgent #51c4d4 #ecedee #51c4d4
 client.focused          #4c7899 #04A3EB #ffffff #bc1f54 #04A3EB
 client.focused_inactive #333333 #5f676a #ffffff #222222 #222222
 client.unfocused        #333333 #222222 #888888 #222222 #222222
@@ -207,39 +196,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 # finds out, if available)
 
 bar {
-#    #status_command conky -c $HOME/.i3/conky/conkyrc
-#    status_command i3status --conig ~/.i3status.conf
-#    mode dock
-#    position top
-#    font pango:open sans 7.8
-#    strip_workspace_numbers yes
-#
-#    colors {
-#        # Whole color settings
-#        #background #F1F2F6
-#        background #202020
-#        statusline #F8F8F8
-#        separator  #51c4d4
-#        focused_workspace  #202020 #444444 #F8F8F8
-#        active_workspace   #202020 #444444 #F8F8F8
-#        inactive_workspace #202020 #202020 #F8F8F8
-#        urgent_workspace   #202020 #202020 #F8F8F8
-#
-#        # Type             border  background font
-#        #focused_workspace  #F1F2F6 #F1F2F6 #4FC0E8
-#        #active_workspace   #F1F2F6 #F1F2F6 #4FC0E8
-#        #inactive_workspace #F1F2F6 #F1F2F6 #C1D1E0
-#        #urgent_workspace   #F1F2F6 #F1F2F6 #C1D1E0
-#    }
-#    #status_command ~/.i3/measure-net-speed-i3status.sh
-#    #font pango: Inconsolata Medium 11
-#
     status_command ~/.config/polybar/launch.sh
     mode invisible
     tray_output none
 }
-
-font pango:open sans 7.8
 
 # Name the workspaces
 #set $tag1 "1: Web"
@@ -249,7 +209,6 @@ font pango:open sans 7.8
 exec --no-startup-id compton
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
-
 
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
 #    tap enabled
