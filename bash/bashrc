@@ -114,3 +114,15 @@ man() {
         PATH="$HOME/bin:$PATH" \
             man "$@"
 }
+
+# Nicer substring search with fzf
+if command -v "fzf" >/dev/null 2>&1; then
+    [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+
+    function fzfedit {
+        local file
+        file=$(fzf)
+        [ "$?" -eq 0 -a ! -z "$file" ] && "$EDITOR" "$file"
+    }
+    bind -x '"\C-p": fzfedit;'
+fi
