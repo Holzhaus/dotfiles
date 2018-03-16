@@ -185,3 +185,6 @@ if has("nvim")
       au TermClose * stopinsert
     augroup END
 endif
+
+" Do not change directory automatically
+let g:rooter_manual_only = 1
