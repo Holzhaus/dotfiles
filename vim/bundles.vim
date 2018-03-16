@@ -23,6 +23,8 @@ Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 if has("python3") && has("nvim")
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
