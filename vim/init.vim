@@ -186,5 +186,10 @@ if has("nvim")
     augroup END
 endif
 
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
 " Do not change directory automatically
 let g:rooter_manual_only = 1
