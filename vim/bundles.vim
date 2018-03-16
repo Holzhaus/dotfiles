@@ -21,7 +21,6 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-dispatch'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-rooter'
 if has("python3") && has("nvim")
