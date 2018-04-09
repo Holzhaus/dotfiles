@@ -14,11 +14,10 @@ endfunction
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-dispatch'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'davidhalter/jedi-vim'
