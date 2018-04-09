@@ -126,3 +126,5 @@ if command -v "fzf" >/dev/null 2>&1; then
     }
     bind -x '"\C-p": fzfedit;'
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
