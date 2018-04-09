@@ -135,7 +135,7 @@ set tabstop=4
 set expandtab
 
 " Show Tabs and EOL
-if has("multi_byte") && &termencoding == "utf-8"
+if has("multi_byte") && ( has("nvim") || &termencoding == "utf-8" )
     set list
     set listchars=tab:▹\ ,space:·,nbsp:␣
     set showbreak=↪\ 
