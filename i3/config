@@ -207,6 +207,7 @@ bar {
 #set $tag3 "3: Code"
 
 exec --no-startup-id compton
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 
