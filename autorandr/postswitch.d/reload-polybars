@@ -1,2 +1,2 @@
 #!/bin/sh
-"$HOME/.config/polybar/launch.sh"
+"$HOME/.config/polybar/launch.sh" "$AUTORANDR_CURRENT_PROFILE"
