@@ -80,6 +80,9 @@ symlink "$DOTFILES/autorandr"            "$XDG_CONFIG_HOME/autorandr"
 # compton
 symlink "$DOTFILES/compton/compton.conf" "$HOME/.compton.conf"
 
+# dunst
+symlink "$DOTFILES/dunst"                "$XDG_CONFIG_HOME/dunst"
+
 # inputrc
 symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 
