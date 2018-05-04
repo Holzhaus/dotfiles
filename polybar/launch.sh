@@ -4,6 +4,18 @@ PROFILE="$1"
 
 if [ -z "$PROFILE" ]
 then
+    PROFILE="$(autorandr --dry-run  2>&1 | grep -Po '^\w+(?=.*\s\(current\))')"
+    if [ -z "$PROFILE" ]
+    then
+        printf 'Current profile not detected!\n'
+        PROFILE="default"
+    else
+        printf 'Using detected polybar profile "%s"\n' "$PROFILE"
+    fi
+fi
+
+if [ "$PROFILE" = "default" ]
+then
     PROFILE="docked"
     printf 'Using default polybar profile "%s"\n' "$PROFILE"
 fi
@@ -17,10 +29,6 @@ case "$PROFILE" in
         ;;
     "mobile")
         POLYBAR_NAMES="primary"
-        ;;
-    "")
-        printf 'Using default polybar profile "docked"\n'
-        POLYBAR_NAMES="primary secondary"
         ;;
     *)
         printf 'Usage: %s {none|docked|mobile}\n' "$0"
