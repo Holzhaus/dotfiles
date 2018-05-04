@@ -111,6 +111,7 @@ symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 symlink "$DOTFILES/xinitrc"              "$HOME/.xinitrc"
 
 # Xresources
+symlink "$DOTFILES/xcolors"              "$HOME/.xcolors"
 symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
 
 # Zathura
