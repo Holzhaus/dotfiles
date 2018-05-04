@@ -22,6 +22,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-rooter'
+Plug 'tweekmonster/fzf-filemru'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 if has("python3") && has("nvim")
