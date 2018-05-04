@@ -66,7 +66,9 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 " Transparent background
-highlight Normal guibg=NONE ctermbg=NONE
+if !has('gui_running')
+    highlight Normal guibg=NONE ctermbg=NONE
+endif
 
 highlight Statement cterm=italic
 highlight Conditional cterm=italic
