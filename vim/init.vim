@@ -185,6 +185,11 @@ function! AddModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AddModeline()<CR>
 
+" Reset terminal after leaving VIM
+if !has('gui_running')
+    au VimLeave * !echo -ne "\033[0m"
+endif
+
 " Airline settings
 let g:airline_theme = 'murmur'
 let g:airline_powerline_fonts = 0
