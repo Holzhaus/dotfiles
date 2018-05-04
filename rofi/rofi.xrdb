@@ -3,10 +3,11 @@ rofi.font: Inconsolata 10
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #e91d1f21, #e91d1f21, #5b5b5b
-rofi.color-normal: #00000000, #c5c8c6, #00000000, #03a9f4, #ecefe1
-rofi.color-active: #e91d1f21, #009688, #00000000, #009688, #1d1f21
-rofi.color-urgent: #00000000, #e91e63, #00000000, #e91e63, #1d1f21
+! State:           'bg',        'fg',        'bgalt',     'hlbg',      'hlfg'
+rofi.color-window: BACKGROUND,  BACKGROUND,  BACKGROUND,
+rofi.color-normal: BACKGROUND,  FOREGROUND,  BACKGROUND,  COLOR1,      COLOR0
+rofi.color-active: COLOR4,      COLOR2,      BACKGROUND,  COLOR2,      COLOR0
+rofi.color-urgent: BACKGROUND,  COLOR4,      BACKGROUND,  BACKGROUND,  COLOR0
 ! ------------------------------------------------------------------------------
 ! ROFI Misc Settings
 ! ------------------------------------------------------------------------------
