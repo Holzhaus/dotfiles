@@ -65,7 +65,7 @@ font:
   # false.
   use_thin_strokes: true
 
-background_opacity: 0.9
+background_opacity: 0.95
 
 # Should display the render timer
 render_timer: false
@@ -74,39 +74,35 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (Tomorrow Night Bright)
+# Colors (Monokai)
 colors:
   # Default colors
   primary:
-    background: '0x1d1f21'
-    foreground: '0xffffff'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x000000'
-    cursor: '0xaeafad'
+    background: '0x272822'
+    foreground: '0xf8f8f2'
 
   # Normal colors
   normal:
-    black:   '0x263238'
-    red:     '0xff9800'
-    green:   '0x8bc34a'
-    yellow:  '0xffc107'
-    blue:    '0x03a9f4'
-    magenta: '0xe91e63'
-    cyan:    '0x009688'
-    white:   '0xffffff'
+  #black:   '0x272822'
+    black: '0xf8f8f2'
+    red:     '0xf92672'
+    green:   '0xa6e22e'
+    yellow:  '0xf4bf75'
+    blue:    '0x66d9ef'
+    magenta: '0xae81ff'
+    cyan:    '0xa1efe4'
+    white:   '0xf8f8f2'
 
   # Bright colors
   bright:
-    black:   '0x37474f'
-    red:     '0xffa74d'
-    green:   '0x9ccc65'
-    yellow:  '0xffa000'
-    blue:    '0x81d4fa'
-    magenta: '0xad1457'
-    cyan:    '0x26a69a'
-    white:   '0xeceff1'
+    black:   '0x75715e'
+    red:     '0xf92672'
+    green:   '0xa6e22e'
+    yellow:  '0xf4bf75'
+    blue:    '0x66d9ef'
+    magenta: '0xae81ff'
+    cyan:    '0xa1efe4'
+    white:   '0xf9f8f5'
 
 # Visual Bell
 #
