@@ -1,12 +1,11 @@
 [colors]
-;background = ${xrdb:color0:#222}
-background = #e6202020
-background-alt = #04A3EB
-foreground = #fff
-foreground-alt = #d7d7d7
-success = #0f0
-alert = #f00
-warning = #ff0
+background = ${xrdb:background}
+background-alt = ${xrdb:color4}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:foreground}
+success = ${xrdb:color10}
+alert = ${xrdb:color9}
+warning = ${xrdb:color12}
 
 [settings]
 ; The throttle settings lets the eventloop swallow up til X events
