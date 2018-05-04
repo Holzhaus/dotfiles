@@ -3,7 +3,7 @@ nmap <C-p> :Files<CR>
 
 if executable('rg')
     let g:rg_command = '
-      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always"
       \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
       \ -g "!*.{min.js,swp,o,zip}"
       \ -g "!{.git,node_modules,vendor}/*" '
