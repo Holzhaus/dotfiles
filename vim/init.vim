@@ -54,6 +54,8 @@ syntax on
 set omnifunc=syntaxcomplete#Complete
 
 " Color scheme
+let g:rehash256 = 1
+let g:molokai_original = 1
 try
     colorscheme molokai
     "highlight Normal ctermbg=230
