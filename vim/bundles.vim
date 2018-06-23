@@ -25,6 +25,7 @@ Plug 'airblade/vim-rooter'
 Plug 'tweekmonster/fzf-filemru'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 if has("python3") && has("nvim")
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
