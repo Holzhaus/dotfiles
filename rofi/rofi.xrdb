@@ -1,11 +1,11 @@
-rofi.font: Inconsolata 10
+rofi.font: Meslo LG 7
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
 ! State:           'bg',        'fg',        'bgalt',     'hlbg',      'hlfg'
 rofi.color-window: BACKGROUND,  BACKGROUND,  BACKGROUND,
-rofi.color-normal: BACKGROUND,  FOREGROUND,  BACKGROUND,  COLOR1,      COLOR0
+rofi.color-normal: BACKGROUND,  FOREGROUND,  BACKGROUND,  COLOR2,      COLOR0
 rofi.color-active: COLOR4,      COLOR2,      BACKGROUND,  COLOR2,      COLOR0
 rofi.color-urgent: BACKGROUND,  COLOR4,      BACKGROUND,  BACKGROUND,  COLOR0
 ! ------------------------------------------------------------------------------

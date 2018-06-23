@@ -9,7 +9,7 @@
 [[ -r /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 # Get current branch in git repo
-function get_git_branch() {
+get_git_branch() {
     BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
     if [ ! "${BRANCH}" == "" ]
     then
@@ -22,7 +22,7 @@ function get_git_branch() {
 }
 
 # Get current status of git repo
-function get_git_status {
+get_git_status() {
     FLAG_RENAMED=1
     FLAG_MODIFIED=$((1<<1))
     FLAG_ADDED=$((1<<2))
@@ -49,9 +49,9 @@ function get_git_status {
 # Set the shell prompt
 #PS1='[\u@\h \W]\$ '
 if command -v "git" >/dev/null 2>&1; then
-    export PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[35m\]\`get_git_branch\`\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
+    PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[35m\]\`get_git_branch\`\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
 else
-    export PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
+    PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
 fi
 
 # Use a big shared history

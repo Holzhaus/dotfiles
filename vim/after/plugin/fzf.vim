@@ -1,5 +1,5 @@
 " CTRLP emulation
-nmap <C-p> :Files<CR>
+nmap <C-p> :ProjectMru<CR>
 
 if executable('rg')
     let g:rg_command = '

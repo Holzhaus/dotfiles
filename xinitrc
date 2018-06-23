@@ -1,6 +1,3 @@
-# autorandr
-autorandr --change
-
 # Gnome Keyring
 dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)

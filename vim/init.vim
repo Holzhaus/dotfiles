@@ -51,13 +51,10 @@ augroup END
 " Enable syntax highlighting
 filetype plugin on
 syntax on
-set omnifunc=syntaxcomplete#Complete
 
 " Color scheme
-let g:rehash256 = 1
-let g:molokai_original = 1
 try
-    colorscheme molokai
+    colorscheme monokai
     "highlight Normal ctermbg=230
     highlight Visual ctermbg=237
     "highlight NonText ctermbg=234
@@ -68,6 +65,7 @@ endtry
 " Transparent background
 if !has('gui_running')
     highlight Normal guibg=NONE ctermbg=NONE
+    highlight NonText guibg=NONE ctermbg=NONE
 endif
 
 highlight Statement cterm=italic
@@ -212,5 +210,10 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-" Do not change directory automatically
-let g:rooter_manual_only = 1
+" Deoplete support
+let g:deoplete#enable_at_startup = 1
+
+" rooter
+let g:rooter_use_lcd = 1
+let g:rooter_silent_chdir = 1
+let g:rooter_patterns = ['Makefile', 'Rakefile', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
