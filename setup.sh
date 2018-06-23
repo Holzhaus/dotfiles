@@ -126,5 +126,5 @@ symlink "$DOTFILES/zathura"              "$XDG_CONFIG_HOME/zathura"
 shopt -s nullglob
 for executable in "$DOTFILES/bin/"*
 do
-    echo "$executable" "$BINDIR/$(basename "$executable")"
+    symlink "$executable" "$BINDIR/$(basename "$executable")"
 done
