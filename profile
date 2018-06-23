@@ -39,3 +39,8 @@ fi
 if [ -d "$HOME/.texmf" ]; then
     export TEXMFHOME="$HOME/.texmf"
 fi
+
+# Set up terminal emulator
+if command -v "alacritty" >/dev/null 2>&1; then
+    export TERMINAL="alacritty"
+fi
