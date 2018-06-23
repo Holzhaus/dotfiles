@@ -51,7 +51,6 @@ augroup END
 " Enable syntax highlighting
 filetype plugin on
 syntax on
-set omnifunc=syntaxcomplete#Complete
 
 " Color scheme
 try
@@ -213,3 +212,6 @@ endif
 
 " Do not change directory automatically
 let g:rooter_manual_only = 1
+
+" Deoplete support
+let g:deoplete#enable_at_startup = 1
