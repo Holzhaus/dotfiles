@@ -12,7 +12,13 @@ abspath() {
 }
 
 : "${HOME?Need to set HOME}"
+
 [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
+mkdir -p "$XDG_CONFIG_HOME"
+
+[ -z "$BINDIR" ] && BINDIR="$HOME/.local/bin"
+mkdir -p "$BINDIR"
+
 DOTFILES="$(abspath "$(dirname "$0")")"
 
 # Logging
@@ -116,3 +122,9 @@ symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
 
 # Zathura
 symlink "$DOTFILES/zathura"              "$XDG_CONFIG_HOME/zathura"
+
+shopt -s nullglob
+for executable in "$DOTFILES/bin/"*
+do
+    echo "$executable" "$BINDIR/$(basename "$executable")"
+done
