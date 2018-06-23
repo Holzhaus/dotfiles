@@ -36,7 +36,7 @@ case "$PROFILE" in
 esac
 
 # Kill old instances and wait for them to terminate
-pkill -TERM -e polybar | grep -ioP '(pid \K\d+)' | while read -r PID
+pkill -TERM -e -x polybar | grep -ioP '(pid \K\d+)' | while read -r PID
 do
     while ps --pid "$PID" > /dev/null
     do
@@ -52,5 +52,5 @@ done
 for POLYBAR_NAME in $POLYBAR_NAMES
 do
     printf 'Launching polybar "%s"\n' "$POLYBAR_NAME"
-    polybar --reload "$POLYBAR_NAME" &
+    setsid --fork polybar --reload "$POLYBAR_NAME"
 done
