@@ -54,10 +54,8 @@ syntax on
 set omnifunc=syntaxcomplete#Complete
 
 " Color scheme
-let g:rehash256 = 1
-let g:molokai_original = 1
 try
-    colorscheme molokai
+    colorscheme monokai
     "highlight Normal ctermbg=230
     highlight Visual ctermbg=237
     "highlight NonText ctermbg=234
@@ -68,6 +66,7 @@ endtry
 " Transparent background
 if !has('gui_running')
     highlight Normal guibg=NONE ctermbg=NONE
+    highlight NonText guibg=NONE ctermbg=NONE
 endif
 
 highlight Statement cterm=italic
