@@ -16,6 +16,9 @@ abspath() {
 [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME"
 
+[ -z "$XDG_DATA_HOME" ] && XDG_DATA_HOME="$HOME/.local/share"
+mkdir -p "$XDG_DATA_HOME"
+
 [ -z "$BINDIR" ] && BINDIR="$HOME/.local/bin"
 mkdir -p "$BINDIR"
 
@@ -111,7 +114,9 @@ symlink "$DOTFILES/profile"              "$HOME/.profile"
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 
 # qutebrowser
-symlink "$DOTFILES/qutebrowser"          "$XDG_CONFIG_HOME/qutebrowser"
+mkdir -p "$XDG_DATA_HOME/qutebrowser"
+symlink "$DOTFILES/qutebrowser"             "$XDG_CONFIG_HOME/qutebrowser"
+symlink "$DOTFILES/qutebrowser/userscripts" "$XDG_DATA_HOME/qutebrowser/userscripts"
 
 # redshift
 symlink "$DOTFILES/redshift"             "$XDG_CONFIG_HOME/redshift"
