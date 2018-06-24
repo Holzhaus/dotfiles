@@ -110,6 +110,9 @@ symlink "$DOTFILES/profile"              "$HOME/.profile"
 # Python
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 
+# qutebrowser
+symlink "$DOTFILES/qutebrowser"          "$XDG_CONFIG_HOME/qutebrowser"
+
 # redshift
 symlink "$DOTFILES/redshift"             "$XDG_CONFIG_HOME/redshift"
 
