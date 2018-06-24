@@ -110,6 +110,9 @@ symlink "$DOTFILES/profile"              "$HOME/.profile"
 # Python
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 
+# redshift
+symlink "$DOTFILES/redshift"             "$XDG_CONFIG_HOME/redshift"
+
 # rofi
 symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
