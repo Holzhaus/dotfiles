@@ -214,6 +214,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 
 " rooter
+let g:rooter_manual_only = 1
 let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_patterns = ['Makefile', 'Rakefile', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
