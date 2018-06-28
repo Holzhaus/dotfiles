@@ -30,6 +30,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # Monitor setup
+bindsym $mod+p exec "autorandr-toggle"
 bindsym $mod+m exec "autorandr --load mobile"
 bindsym $mod+shift+m exec "autorandr --load docked"
 
