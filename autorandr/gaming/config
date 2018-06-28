@@ -1,0 +1,14 @@
+output DP-1
+off
+output DP-2
+off
+output VGA-1
+off
+output LVDS-1
+off
+output DP-3
+gamma 1.0:0.909:0.909
+mode 1680x1050
+pos 0x0
+primary
+rate 59.95
