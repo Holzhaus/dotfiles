@@ -31,19 +31,19 @@ get_git_status() {
     FLAG_UNTRACKED=$((1<<5))
     flags=0
     while read -r line; do
-        [[ "${line:0:2}" =~ ^.?R.?$ ]] && (( flags |= ${FLAG_RENAMED} ))
-        [[ "${line:0:2}" =~ ^.?A.?$ ]] && (( flags |= ${FLAG_ADDED} ))
-        [[ "${line:0:2}" =~ ^.?D.?$ ]] && (( flags |= ${FLAG_DELETED} ))
-        [[ "${line:0:2}" =~ ^.?C.?$ ]] && (( flags |= ${FLAG_COPIED} ))
-        [[ "${line:0:2}" =~ ^.?M.?$ ]] && (( flags |= ${FLAG_MODIFIED} ))
-        [[ "${line:0:2}" =~ ^\?\?$ ]] && (( flags |= ${FLAG_UNTRACKED} ))
+        [[ "${line:0:2}" =~ ^.?R.?$ ]] && (( flags |= FLAG_RENAMED ))
+        [[ "${line:0:2}" =~ ^.?A.?$ ]] && (( flags |= FLAG_ADDED ))
+        [[ "${line:0:2}" =~ ^.?D.?$ ]] && (( flags |= FLAG_DELETED ))
+        [[ "${line:0:2}" =~ ^.?C.?$ ]] && (( flags |= FLAG_COPIED ))
+        [[ "${line:0:2}" =~ ^.?M.?$ ]] && (( flags |= FLAG_MODIFIED ))
+        [[ "${line:0:2}" =~ ^\?\?$ ]] && (( flags |= FLAG_UNTRACKED ))
     done <<< "$(git status --porcelain 2>/dev/null)"
-    (( ${flags} & ${FLAG_RENAMED} )) && printf ">"
-    (( ${flags} & ${FLAG_MODIFIED} )) && printf "*"
-    (( ${flags} & ${FLAG_ADDED} )) && printf "+"
-    (( ${flags} & ${FLAG_DELETED} )) && printf "-"
-    (( ${flags} & ${FLAG_COPIED} )) && printf "~"
-    (( ${flags} & ${FLAG_UNTRACKED} )) && printf "?"
+    (( flags & FLAG_RENAMED )) && printf ">"
+    (( flags & FLAG_MODIFIED )) && printf "*"
+    (( flags & FLAG_ADDED )) && printf "+"
+    (( flags & FLAG_DELETED )) && printf "-"
+    (( flags & FLAG_COPIED )) && printf "~"
+    (( flags & FLAG_UNTRACKED )) && printf "?"
 }
 
 # Set the shell prompt
