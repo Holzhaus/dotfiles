@@ -48,11 +48,20 @@ get_git_status() {
 
 # Set the shell prompt
 #PS1='[\u@\h \W]\$ '
-if command -v "git" >/dev/null 2>&1; then
-    PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[35m\]\`get_git_branch\`\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
-else
-    PS1="[\[\e[31m\]\A\[\e[m\]] \[\e[32m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[36m\]\\$\[\e[m\] "
+
+if command -v "git" >/dev/null 2>&1
+then
+    PS1_GITBRANCH="\\[\\e[35m\\]\`get_git_branch\`\\[\\e[m\\]"
 fi
+
+if [ -n "$SSH_CLIENT" ]
+then
+    PS1_HOSTCOLOR="\\[\\e[32m\\]"
+else
+    PS1_HOSTCOLOR="\\[\\e[34m\\]"
+fi
+
+PS1="[\\[\\e[31m\\]\\A\\[\\e[m\\]] \\[\\e[32m\\]\\u\\[\\e[m\\]@$PS1_HOSTCOLOR\\h\\[\\e[m\\]:\\[\\e[33m\\]\\w\\[\\e[m\\]$PS1_GITBRANCH\\[\\e[36m\\]\\\\$\\[\\e[m\\] "
 
 # Use a big shared history
 export HISTSIZE=100000
