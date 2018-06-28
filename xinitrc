@@ -1,20 +1,23 @@
-# Gnome Keyring
-dbus-update-activation-environment --systemd DISPLAY
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+# System-wide xinit files
+if [ -d "/etc/X11/xinit/xinitrc.d" ]
+then
+    for f in "/etc/X11/xinit/xinitrc.d/"?*
+    do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
 
-# Load Xresources
-xrdb -merge $HOME/.Xresources
-
-# Screensaver / Locker
-xset s 180 180
-xset dpms 300 600 900
-xss-lock -l -- "$HOME/.i3/i3lock-multimonitor.sh" "$HOME/.i3/lockscreen.jpg" -c 000000 -f -t &
-
-# Wallpaper
-nitrogen --restore
-
-# Auto-Hide mouse pointer
-( command -v "unclutter" >/dev/null 2>&1 ) && unclutter &
+# User-local xinit files
+: "${HOME?Need to set HOME}"
+if [ -d "$HOME/.xinitrc.d" ]
+then
+    for f in "$HOME/.xinitrc.d/"?*
+    do
+        logger --id=$$ "Sourcing file: $f"
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
 
 exec i3

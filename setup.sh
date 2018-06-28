@@ -126,6 +126,7 @@ symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
 
 # xinitrc
 symlink "$DOTFILES/xinitrc"              "$HOME/.xinitrc"
+symlink "$DOTFILES/xinitrc.d"            "$HOME/.xinitrc.d"
 
 # Xresources
 symlink "$DOTFILES/xcolors"              "$HOME/.xcolors"
