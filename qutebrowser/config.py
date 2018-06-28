@@ -8,6 +8,16 @@ import yaml
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
+CONFIG_KEYS_DICT = (
+    'aliases',
+    'bindings.commands',
+    'bindings.default',
+    'bindings.key_mappings',
+    'content.headers.custom',
+    'content.javascript.log',
+    'url.searchengines',
+)
+
 
 def read_xresources(prefix):
     props = {}
@@ -22,7 +32,12 @@ def read_xresources(prefix):
 def dict_attrs(obj, path=''):
     if isinstance(obj, dict):
         for k, v in obj.items():
-            yield from dict_attrs(v, '{}.{}'.format(path, k) if path else k)
+            newpath = '{}.{}'.format(path, k) if path else k
+            if newpath in CONFIG_KEYS_DICT:
+                print('set %s to %r' % (newpath, v))
+                yield newpath, v
+            else:
+                yield from dict_attrs(v, newpath)
     else:
         yield path, obj
 
