@@ -5,12 +5,12 @@ off
 output LVDS-1
 off
 output VGA-1
-gamma 1.0:0.909:0.833
+gamma 1.0:0.909:0.909
 mode 1600x900
 pos 0x0
 rate 60.00
 output DP-3
-gamma 1.0:0.909:0.833
+gamma 1.0:0.909:0.909
 mode 1680x1050
 pos 1600x0
 primary
