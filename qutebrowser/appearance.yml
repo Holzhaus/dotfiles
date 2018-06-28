@@ -131,14 +131,3 @@ fonts:
         error: "8p monospace"
         info: "8p monospace"
         warning: "8p monospace"
-
-prompt:
-    filebrowser: true
-
-session:
-    lazy_restore: true
-
-#spellcheck:
-#    languages:
-#        - "de-DE"
-#        - "en-US"

@@ -43,7 +43,7 @@ def dict_attrs(obj, path=''):
 
 
 xresources = read_xresources('*')
-with open(os.path.join(config.configdir, 'config.yml'), mode='r') as f:
+with open(os.path.join(config.configdir, 'appearance.yml'), mode='r') as f:
     yaml_data = yaml.load(f)
     for k, v in dict_attrs(yaml_data):
         if isinstance(v, str):
