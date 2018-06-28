@@ -42,10 +42,20 @@ def dict_attrs(obj, path=''):
         yield path, obj
 
 
+def read_yml(filename, xresources=None):
+    with open(os.path.join(config.configdir, filename), mode='r') as f:
+        yaml_data = yaml.load(f)
+        for k, v in dict_attrs(yaml_data):
+            if xresources and isinstance(v, str):
+                v = v.format_map(xresources)
+            config.set(k, v)
+
+
 xresources = read_xresources('*')
-with open(os.path.join(config.configdir, 'appearance.yml'), mode='r') as f:
-    yaml_data = yaml.load(f)
-    for k, v in dict_attrs(yaml_data):
-        if isinstance(v, str):
-            v = v.format_map(xresources)
-        config.set(k, v)
+
+config_files = (
+    'appearance.yml',
+    'config.yml',
+)
+for filename in config_files:
+    read_yml(filename, xresources=xresources)
