@@ -52,5 +52,5 @@ done
 for POLYBAR_NAME in $POLYBAR_NAMES
 do
     printf 'Launching polybar "%s"\n' "$POLYBAR_NAME"
-    setsid --fork polybar --reload "$POLYBAR_NAME"
+    nohup polybar --reload "$POLYBAR_NAME" >/dev/null 2>&1 &
 done
