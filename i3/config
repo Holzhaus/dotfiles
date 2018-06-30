@@ -202,7 +202,7 @@ client.placeholder      $bg     $bg     $bg     $bg     $bg
 # finds out, if available)
 
 bar {
-    status_command ~/.config/polybar/launch.sh
+    status_command polybar-launch
     mode invisible
     tray_output none
 }
