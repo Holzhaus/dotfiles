@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import glob
 import os
 import subprocess
 import yaml
@@ -44,8 +45,8 @@ def dict_attrs(obj, path=''):
         yield path, obj
 
 
-def read_yml(filename, xresources=None):
-    with open(os.path.join(config.configdir, filename), mode='r') as f:
+def read_yml(filepath, xresources=None):
+    with open(filepath, mode='r') as f:
         yaml_data = yaml.load(f)
         for k, v in dict_attrs(yaml_data):
             if xresources and isinstance(v, str):
@@ -56,8 +57,9 @@ def read_yml(filename, xresources=None):
 xresources = read_xresources('*')
 
 config_files = (
-    'appearance.yml',
-    'config.yml',
+    fn
+    for fn in glob.iglob(os.path.join(glob.escape(config.configdir), '*.yml'))
+    if os.path.basename(fn) != 'autoconfig.yml'
 )
 for filename in config_files:
     read_yml(filename, xresources=xresources)
