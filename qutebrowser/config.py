@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import subprocess
 import os
+import subprocess
 import yaml
 
 # Silence linter errors and enable annotation support
