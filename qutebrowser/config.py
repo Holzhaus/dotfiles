@@ -37,7 +37,6 @@ def dict_attrs(obj, path=''):
         for k, v in obj.items():
             newpath = '{}.{}'.format(path, k) if path else k
             if newpath in CONFIG_KEYS_DICT:
-                print('set %s to %r' % (newpath, v))
                 yield newpath, v
             else:
                 yield from dict_attrs(v, newpath)
