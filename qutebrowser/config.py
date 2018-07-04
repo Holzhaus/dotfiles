@@ -51,6 +51,8 @@ def read_yml(filepath, xresources=None):
         for k, v in dict_attrs(yaml_data):
             if xresources and isinstance(v, str):
                 v = v.format_map(xresources)
+            if k in CONFIG_KEYS_DICT:
+                v.update(config.get(k))
             config.set(k, v)
 
 

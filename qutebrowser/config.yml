@@ -5,8 +5,5 @@ session.lazy_restore: true
 content.proxy: system
 
 aliases:
-    q: quit
-    w: session-save
-    wq: quit --save
     burp: set content.proxy http://127.0.0.1:8080/
     noburp: set content.proxy system
