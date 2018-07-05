@@ -216,7 +216,6 @@ bar {
 #set $tag3 "3: Code"
 
 exec --no-startup-id compton
-exec --no-startup-id dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -nf "$fg" -cf "$fg" -lfr "$fg" -nfr "$hbg" -cfr "$fbg"
 
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
 #    tap enabled
