@@ -8,10 +8,11 @@ get_xcolor() {
 
 foreground="$(get_xcolor "foreground")"
 background="$(get_xcolor "background")"
-frame_normal="$(get_xcolor "color4")"
-frame_critical="$(get_xcolor "color5")"
+foreground_normal="$(get_xcolor "color4")"
+foreground_critical="$(get_xcolor "color5")"
 
 exec dunst \
     -lb "$background" -nb "$background" -cb "$background" \
-    -lf "$foreground" -nf "$foreground" -cf "$foreground" \
-    -lfr "$foreground" -nfr "$frame_normal" -cfr "$frame_critical"
+    -lf "$foreground" -nf "$foreground_normal" -cf "$foreground_critical" \
+    -lfr "$background" -nfr "$background" -cfr "$background" \
+    -format "<b>%s</b>\\n<span color=\"$foreground\">%b</span>"
