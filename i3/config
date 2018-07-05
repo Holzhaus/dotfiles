@@ -215,8 +215,6 @@ bar {
 #set $tag2 "2: Terminal"
 #set $tag3 "3: Code"
 
-exec --no-startup-id compton
-
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
 #    tap enabled
 #    natural_scroll disabled
