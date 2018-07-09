@@ -15,7 +15,7 @@ rofi.bw:                             0
 rofi.modi:                           combi
 rofi.location:                       0
 rofi.terminal:                       alacritty
-rofi.combi-modi:                     run,window,ssh
+rofi.combi-modi:                     run,window,ssh,drun
 rofi.m:                              -1
 rofi.separator-style:                solid
 rofi.hide-scrollbar:                 true
