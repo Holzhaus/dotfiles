@@ -26,6 +26,10 @@ if [[ -r "$HOME/.lessrc" ]]; then
     source "$HOME/.lessrc"
 fi
 
+if command -v "w3m" >/dev/null 2>&1; then
+    export BROWSER=w3m
+fi
+
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Setup python startup config
