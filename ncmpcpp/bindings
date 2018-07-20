@@ -1,3 +1,6 @@
+def_command "reconnect-rtp" [deferred]
+  run_external_command "(pacmd unload-module module-rtp-recv ; pacmd unload-module module-rtp-recv) >/dev/null 2>&1"
+
 def_key "j"
   scroll_down
 
