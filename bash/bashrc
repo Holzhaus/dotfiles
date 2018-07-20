@@ -46,22 +46,42 @@ get_git_status() {
     (( flags & FLAG_UNTRACKED )) && printf "?"
 }
 
-# Set the shell prompt
-#PS1='[\u@\h \W]\$ '
+get_ps1() {
+    # Set the shell prompt
+    #printf '[\u@\h \W]\$ '
 
-if command -v "git" >/dev/null 2>&1
-then
-    PS1_GITBRANCH="\\[\\e[35m\\]\`get_git_branch\`\\[\\e[m\\]"
-fi
+    local reset="$(tput sgr0)"
+    local black="$(tput setaf 0)"
+    local red="$(tput setaf 1)"
+    local green="$(tput setaf 2)"
+    local yellow="$(tput setaf 3)"
+    local blue="$(tput setaf 4)"
+    local magenta="$(tput setaf 5)"
+    local cyan="$(tput setaf 6)"
+    local white="$(tput setaf 7)"
 
-if [ -n "$SSH_CLIENT" ]
-then
-    PS1_HOSTCOLOR="\\[\\e[32m\\]"
-else
-    PS1_HOSTCOLOR="\\[\\e[34m\\]"
-fi
+    if command -v "git" >/dev/null 2>&1
+    then
+        local gitbranch="${magenta}\$(get_git_branch)${reset}"
+    fi
 
-PS1="[\\[\\e[31m\\]\\A\\[\\e[m\\]] \\[\\e[32m\\]\\u\\[\\e[m\\]@$PS1_HOSTCOLOR\\h\\[\\e[m\\]:\\[\\e[33m\\]\\w\\[\\e[m\\]$PS1_GITBRANCH\\[\\e[36m\\]\\\\$\\[\\e[m\\] "
+    if [ "$USER" = "root" ]
+    then
+        local usercolor="${red}"
+    else
+        local usercolor="${green}"
+    fi
+
+    if [ -n "$SSH_CLIENT" ]
+    then
+        local hostinfo="${usercolor}\\u${reset}@${blue}\\h${reset}:"
+    else
+        local hostinfo=""
+    fi
+
+	printf '%s' "[${red}\\A${reset}] ${hostinfo}${yellow}\\w${reset}${gitbranch}${cyan}\$${reset} "
+}
+PS1="$(get_ps1)"
 
 # Use a big shared history
 export HISTSIZE=100000
