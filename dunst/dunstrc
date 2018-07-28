@@ -122,6 +122,8 @@ line_height = 3
 # Set to 0 to disable.
 separator_height = 2
 
+corner_radius = 5
+
 # Padding between text and separator.
 padding = 6
 
