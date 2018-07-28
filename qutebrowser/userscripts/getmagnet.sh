@@ -4,6 +4,14 @@ function qute_run() {
     printf "$@" >> "$QUTE_FIFO"
 }
 
+if [ -z "$QUTE_HTML" ] && ! [ -z "$QUTE_URL" ]
+then
+    QUTE_HTML="$(curl -s "$QUTE_URL")"
+    if [ "$?" -ne 0 ]
+    then
+        qute_run 'message-error "curl exited with code %d"' "$?"
+    fi
+fi
 
 URLS="$(grep -oP 'href="\Kmagnet:[^"]+' "$QUTE_HTML" | sed 's/&amp;/\&/g')"
 if [ -z "$URLS" ]
