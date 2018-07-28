@@ -110,6 +110,12 @@ if command -v "git" >/dev/null 2>&1; then
     alias gwdiff="git diff --no-index --color-words"
 fi
 
+if command -v "transmission-remote" >/dev/null 2>&1; then
+    transmission-remote() {
+        command transmission-remote "$TRANSMISSION_HOST" "$@"
+    }
+fi
+
 # Colored man pages
 if [[ "$OSTYPE" = solaris* ]]
 then
