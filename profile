@@ -2,6 +2,18 @@
 # ~/.profile
 #
 
+# User-local profile files
+: "${HOME?Need to set HOME}"
+if [ -d "$HOME/.profile.d" ]
+then
+    for f in "$HOME/.profile.d/"?*
+    do
+        logger --id=$$ "Sourcing file: $f"
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
 # Use nvim/vim/vi as default editor
 if command -v "nvim" >/dev/null 2>&1; then
     export EDITOR="nvim"
