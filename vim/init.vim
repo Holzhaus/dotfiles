@@ -166,8 +166,10 @@ set autochdir
 nnoremap <F3> :Lexplore<CR>
 
 " Persistent undo
-set undofile
-set undodir=~/.vim/undodir
+if has("persistent_undo")
+    set undodir=~/.vim/undodir
+    set undofile
+endif
 
 " Enable Modelines
 set modeline
