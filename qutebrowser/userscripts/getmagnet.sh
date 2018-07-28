@@ -4,12 +4,6 @@ function qute_run() {
     printf "$@" >> "$QUTE_FIFO"
 }
 
-HOST="$1"
-if [ -z "$HOST" ]
-then
-    qute_run 'message-error "No transmission server was specified!"'
-    exit 0
-fi
 
 URLS="$(grep -oP 'href="\Kmagnet:[^"]+' "$QUTE_HTML" | sed 's/&amp;/\&/g')"
 if [ -z "$URLS" ]
@@ -21,7 +15,7 @@ fi
 IFS=$'\n'
 for URL in $URLS
 do
-    if transmission-remote "$HOST" -a "$URL"
+    if command transmission-remote "$TRANSMISSION_HOST" -a "$URL"
     then
         qute_run 'message-info "Added url: %s"' "$URL"
     else
