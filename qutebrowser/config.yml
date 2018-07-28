@@ -1,9 +1,24 @@
+auto_save.session: true
 completion.use_best_match: true
+content.headers.accept_language: de-DE, de;q=0.9, en-US;q=0.8, en;q=0.7, *;q=0.5
+content.headers.do_not_track: true
+content.xss_auditing: true
 prompt.filebrowser: true
 session.lazy_restore: true
 #spellcheck.languages: ["de-DE", "en-US"]
 content.proxy: system
+url.default_page: https://www.tagesschau.de
+
+bindings.commands:
+    normal:
+        <Ctrl+e>: scroll-down
+        <Ctrl+y>: scroll-up
+    insert:
+        <Ctrl+e>: scroll-down
+        <Ctrl+y>: scroll-up
 
 aliases:
+    scroll-down: scroll-px 0 100
+    scroll-up: scroll-px 0 -100
     burp: set content.proxy http://127.0.0.1:8080/
     noburp: set content.proxy system
