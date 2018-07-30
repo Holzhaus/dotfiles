@@ -14,7 +14,7 @@ bindings.commands:
         <Ctrl+e>: scroll-down
         <Ctrl+y>: scroll-up
         ",t": getmagnet
-        ",T": hint links userscript getmagnet.sh
+        ",T": hint links spawn --userscript getmagnet.sh {hint-url}
     insert:
         <Ctrl+e>: scroll-down
         <Ctrl+y>: scroll-up

@@ -1,13 +1,16 @@
 #!/bin/bash
 set -o pipefail
+[ -z "$QUTE_FIFO" ] && printf "QUTE_FIFO not set!\n" && exit 1
+
 function qute_run() {
-    printf "$@" >> "$QUTE_FIFO"
+    printf "$@" > "$QUTE_FIFO"
 }
 
-if [ -z "$QUTE_HTML" ] && ! [ -z "$QUTE_URL" ]
+if ! [ -z "$1" ]
 then
-    QUTE_HTML="$(curl -s "$QUTE_URL")"
-    if [ "$?" -ne 0 ]
+    QUTE_HTML=$(mktemp --suffix=".html")
+    trap 'rm -f "$QUTE_HTML"' EXIT
+    if ! curl --silent --location --output "$QUTE_HTML" "$1"
     then
         qute_run 'message-error "curl exited with code %d"' "$?"
     fi
