@@ -80,8 +80,8 @@ set nofoldenable
 set foldlevel=2
 
 " Oh vim, don't be so slow,,,
-set ttyfast
-set lazyredraw
+"set ttyfast
+"set lazyredraw
 
 " Real time regex highlighting
 set incsearch
@@ -187,9 +187,9 @@ endfunction
 nnoremap <silent> <Leader>ml :call AddModeline()<CR>
 
 " Reset terminal after leaving VIM
-if !has('gui_running')
-    au VimLeave * !echo -ne "\033[0m"
-endif
+"if !has('gui_running')
+"    au VimLeave * !echo -ne "\033[0m"
+"endif
 
 " Airline settings
 let g:airline_theme = 'murmur'
