@@ -14,6 +14,9 @@ then
     unset f
 fi
 
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Use nvim/vim/vi as default editor
 if command -v "nvim" >/dev/null 2>&1; then
     export EDITOR="nvim"
