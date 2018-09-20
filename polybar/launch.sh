@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 # Check which bars should be launched
+
 PROFILE="$1"
 
 if [ -z "$PROFILE" ]
