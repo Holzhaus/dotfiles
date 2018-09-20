@@ -221,3 +221,6 @@ let g:rooter_manual_only = 1
 let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_patterns = ['Makefile', 'Rakefile', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
+
+" Vimwiki
+let g:vimwiki_list = [{ 'path': '~/.vimwiki/', 'ext': '.md', 'auto_toc': 1, 'auto_tags': 1, 'syntax': 'markdown' }]
