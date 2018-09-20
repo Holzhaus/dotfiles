@@ -3,6 +3,7 @@ set -o pipefail
 [ -z "$QUTE_FIFO" ] && printf "QUTE_FIFO not set!\n" && exit 1
 
 function qute_run() {
+    # shellcheck disable=SC2059
     printf "$@" > "$QUTE_FIFO"
 }
 
