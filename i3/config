@@ -225,6 +225,7 @@ gaps inner 2
 gaps outer 2
 
 # Application specific settings
+for_window [class="Wine"] floating enable
 for_window [class="TeamViewer.exe"] floating enable
 for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
