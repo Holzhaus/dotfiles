@@ -60,14 +60,14 @@ else
                     }
                 fi
 
-                (( ${IMAGE_WIDTH} < ($SCREEN_WIDTH+$SCREEN_X) )) && IMAGE_WIDTH=$(($SCREEN_WIDTH+$SCREEN_X))
-                (( ${IMAGE_HEIGHT} < ($SCREEN_HEIGHT+$SCREEN_Y) )) && IMAGE_HEIGHT=$(( $SCREEN_HEIGHT+$SCREEN_Y ))
+                (( IMAGE_WIDTH < (SCREEN_WIDTH+SCREEN_X) )) && IMAGE_WIDTH=$(( SCREEN_WIDTH + SCREEN_X ))
+                (( IMAGE_HEIGHT < (SCREEN_HEIGHT+SCREEN_Y) )) && IMAGE_HEIGHT=$(( SCREEN_HEIGHT + SCREEN_Y ))
 
                 IM_ARGS="${IM_ARGS} ${TEMP_IMG} -geometry +${SCREEN_X}+${SCREEN_Y} -composite"
             fi
         done <<< "$(printf '%s' "${XRANDR}")"
 
-        if (( ${IMAGE_WIDTH} > 0 )) && (( ${IMAGE_WIDTH} > 0 )); then
+        if (( IMAGE_WIDTH > 0 )) && (( IMAGE_WIDTH > 0 )); then
             TEMP_IMG="${TEMP_DIR}/${IMAGE_WIDTH}x${IMAGE_HEIGHT}-final.png"
             convert -size "${IMAGE_WIDTH}x${IMAGE_HEIGHT}" "xc:black" "${TEMP_IMG}"
             convert "${TEMP_IMG}" ${IM_ARGS} "${TEMP_IMG}"
