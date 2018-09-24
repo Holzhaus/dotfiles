@@ -5,7 +5,7 @@ if ! [ -e "${CACHE_DIR}" ]; then
 fi
 
 function usage {
-    printf "usage: $0 [-p] IMAGE_PATH [ I3LOCK_ARGS ... ]"
+    printf 'usage: %s [-p] IMAGE_PATH [ I3LOCK_ARGS ... ]' "$0"
     exit 1
 }
 
@@ -20,7 +20,7 @@ if [ "$1" == "-p" ]; then
         usage
     fi
     PREPARE_ONLY=1
-    printf "Flag -p given, only preparing image for later usage...\n"
+    printf 'Flag -p given, only preparing image for later usage...\n'
     ORIGINAL_IMAGE_PATH="$2"
 else
     ORIGINAL_IMAGE_PATH="$1"
@@ -31,16 +31,16 @@ if ! [ -e "${ORIGINAL_IMAGE_PATH}" ]; then
     IMAGE_PATH=""
 else
     XRANDR="$(xrandr -q)"
-    CHECKSUM="$(cat "${ORIGINAL_IMAGE_PATH}" <(printf "${XRANDR}") | md5sum -)"
+    CHECKSUM="$(cat "${ORIGINAL_IMAGE_PATH}" <(printf '%s' "${XRANDR}") | md5sum -)"
     IMAGE_PATH="${CACHE_DIR}/${CHECKSUM%  *}.png"
 
     if ! [ -e "${IMAGE_PATH}" ]; then
-        printf "%s does not exist, creating...\n" "${IMAGE_PATH}"
+        printf '%s does not exist, creating...\n' "${IMAGE_PATH}"
         IMAGE_WIDTH=0
         IMAGE_HEIGHT=0
         IM_ARGS=""
         TEMP_DIR="$(mktemp -t -d "i3lock.XXXXXXXXXX")"
-        trap "rm -rf \"${TEMP_DIR}\"" EXIT
+        trap 'rm -rf "${TEMP_DIR}"' EXIT
         while read LINE
         do
             if [[ "$LINE" =~ ([0-9]+)x([0-9]+)\+([0-9]+)\+([0-9]+) ]]; then
@@ -48,7 +48,7 @@ else
                 SCREEN_HEIGHT=${BASH_REMATCH[2]}
                 SCREEN_X=${BASH_REMATCH[3]}
                 SCREEN_Y=${BASH_REMATCH[4]}
-                printf "Found active screen: %s\n" "${BASH_REMATCH[0]}"
+                printf 'Found active screen: %s\n' "${BASH_REMATCH[0]}"
 
                 TEMP_IMG="${TEMP_DIR}/${SCREEN_WIDTH}x${SCREEN_HEIGHT}.png"
                 if ! [ -e "${TEMP_IMG}" ]
@@ -65,7 +65,7 @@ else
 
                 IM_ARGS="${IM_ARGS} ${TEMP_IMG} -geometry +${SCREEN_X}+${SCREEN_Y} -composite"
             fi
-        done <<< "$(printf "${XRANDR}")"
+        done <<< "$(printf '%s' "${XRANDR}")"
 
         if (( ${IMAGE_WIDTH} > 0 )) && (( ${IMAGE_WIDTH} > 0 )); then
             TEMP_IMG="${TEMP_DIR}/${IMAGE_WIDTH}x${IMAGE_HEIGHT}-final.png"
@@ -76,13 +76,13 @@ else
     fi
 
     if ! [ -e "${IMAGE_PATH}" ]; then
-        printf "Warning: Image processing failed, using original image.\n"
+        printf 'Warning: Image processing failed, using original image.\n'
         IMAGE_PATH="${ORIGINAL_IMAGE_PATH}"
     fi
 fi
 
 if [ "$PREPARE_ONLY" -eq 0 ]; then
-    printf "Locking screen...\n"
+    printf 'Locking screen...\n'
     if [ -e "${IMAGE_PATH}" ]; then
         i3lock -i "${IMAGE_PATH}" "${@:2}"
     else
