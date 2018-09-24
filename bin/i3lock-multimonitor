@@ -28,7 +28,7 @@ fi
 
 if ! [ -e "${ORIGINAL_IMAGE_PATH}" ]; then
     echo "Error: Image '${ORIGINAL_IMAGE_PATH}' not found, continuing without image..."
-    IMAGE_ARGS=""
+    IMAGE_PATH=""
 else
     XRANDR="$(xrandr -q)"
     CHECKSUM="$(cat "${ORIGINAL_IMAGE_PATH}" <(printf "${XRANDR}") | md5sum -)"
@@ -79,11 +79,13 @@ else
         printf "Warning: Image processing failed, using original image.\n"
         IMAGE_PATH="${ORIGINAL_IMAGE_PATH}"
     fi
-
-    IMAGE_ARGS="-i \"${IMAGE_PATH}\""
 fi
 
 if [ "$PREPARE_ONLY" -eq 0 ]; then
     printf "Locking screen...\n"
-    i3lock "${IMAGE_ARGS}" "${@:2}"
+    if [ -e "${IMAGE_PATH}" ]; then
+        i3lock -i "${IMAGE_PATH}" "${@:2}"
+    else
+        i3lock "${@:2}"
+    fi
 fi
