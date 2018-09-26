@@ -15,16 +15,19 @@ if [ "$#" -eq 0 ]; then
     usage
 fi
 
-if [ "$1" == "-p" ]; then
+if [ "$1" == "--prepare-only" ]; then
     if [ "$#" -eq 1 ]; then
         usage
     fi
     PREPARE_ONLY=1
-    printf 'Flag -p given, only preparing image for later usage...\n'
+    printf 'Flag --prepare-only given, generating image for later usage...\n'
+    shift
+
     ORIGINAL_IMAGE_PATH="$2"
 else
     ORIGINAL_IMAGE_PATH="$1"
 fi
+shift
 
 if ! [ -e "${ORIGINAL_IMAGE_PATH}" ]; then
     echo "Error: Image '${ORIGINAL_IMAGE_PATH}' not found, continuing without image..."
@@ -85,5 +88,5 @@ fi
 
 if [ "$PREPARE_ONLY" -eq 0 ]; then
     printf 'Locking screen...\n'
-    i3lock "${IMAGE_ARGS[@]}" "${@:2}"
+    i3lock "${IMAGE_ARGS[@]}" "${@}"
 fi
