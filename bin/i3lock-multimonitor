@@ -86,7 +86,25 @@ else
     IMAGE_ARGS=(-i "${IMAGE_PATH}")
 fi
 
-if [ "$PREPARE_ONLY" -eq 0 ]; then
-    printf 'Locking screen...\n'
-    i3lock "${IMAGE_ARGS[@]}" "${@}"
+if [ "$PREPARE_ONLY" -ne 0 ]; then
+    exit 0
+fi
+
+printf 'Locking screen...\n'
+if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
+    kill_i3lock() {
+        pkill --exact --euid $EUID "$@" i3lock
+    }
+    trap kill_i3lock TERM INT
+    # we have to make sure the locker does not inherit a copy of the lock fd
+    i3lock "${IMAGE_ARGS[@]}" "$@" {XSS_SLEEP_LOCK_FD}<&-
+    # now close our fd (only remaining copy) to indicate we're ready to sleep
+    exec {XSS_SLEEP_LOCK_FD}<&-
+    while kill_i3lock -0; do
+        sleep 0.5
+    done
+else
+    trap 'kill %%' TERM INT
+    i3lock --nofork "${IMAGE_ARGS[@]}" "$@" &
+    wait
 fi
