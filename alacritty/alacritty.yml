@@ -83,8 +83,8 @@ colors:
 
   # Normal colors
   normal:
-  #black:   '0x272822'
-    black: '0xf8f8f2'
+    black:   '0x272822'
+    #black: '0xf8f8f2'
     red:     '0xf92672'
     green:   '0xa6e22e'
     yellow:  '0xf4bf75'
