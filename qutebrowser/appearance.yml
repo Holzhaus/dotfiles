@@ -120,6 +120,7 @@ hints:
 
 fonts:
     monospace: "Meslo LG M"
+    hints: "bold 8pt monospace"
     tabs: "8pt monospace"
     statusbar: "8pt monospace"
     prompts: "8pt monospace"
