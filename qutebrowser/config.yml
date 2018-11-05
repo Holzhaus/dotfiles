@@ -17,6 +17,10 @@ bindings.commands:
         ",T": hint links spawn --userscript getmagnet.sh {hint-url}
         ",f": getfeed
         ",F": hint links spawn --userscript getfeed.sh {hint-url}
+        '<z><l>': 'spawn --userscript qute-pass'
+        '<z><u><l>': 'spawn --userscript qute-pass --username-only'
+        '<z><p><l>': 'spawn --userscript qute-pass --password-only'
+        '<z><o><l>': 'spawn --userscript qute-pass --otp-only'
     insert:
         <Ctrl+e>: scroll-down
         <Ctrl+y>: scroll-up
