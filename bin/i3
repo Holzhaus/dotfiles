@@ -1,0 +1,3 @@
+#!/bin/sh
+i3-make-config
+exec /usr/bin/i3
