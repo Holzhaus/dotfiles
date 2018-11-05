@@ -54,7 +54,7 @@ syntax on
 
 " Color scheme
 try
-    colorscheme monokai
+    colorscheme monokain
     "highlight Normal ctermbg=230
     highlight Visual ctermbg=237
     "highlight NonText ctermbg=234
