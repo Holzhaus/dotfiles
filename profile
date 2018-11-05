@@ -63,3 +63,5 @@ fi
 if command -v "alacritty" >/dev/null 2>&1; then
     export TERMINAL="alacritty"
 fi
+
+export MPD_HOST="odroid-c2"
