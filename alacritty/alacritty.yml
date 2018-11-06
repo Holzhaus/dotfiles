@@ -35,22 +35,21 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: "Meslo LG M" # should be "Menlo" or something on macOS.
-    #family: Droid Sans Mono # should be "Menlo" or something on macOS.
+    family: "Fira Code"
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: Meslo LG M # should be "Menlo" or something on macOS.
+    family: "Fira Code"
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Operator Mono # should be "Menlo" or something on macOS.
+    family: "Fira Code"
     # Style can be specified to pick a specific face.
-    # style: Italic
+    style: Italic
 
   # Point size of the font
   size: 8.0
