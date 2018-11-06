@@ -4,7 +4,7 @@
 
 [ -z "$HOSTNAME" ] && HOSTNAME="$(hostname)"
 
-xrdb -load "$XRESOURCES"
+xrdb -load "$HOME/.Xresources"
 
 XRESOURCES_HOSTCONFIG="$HOME/.Xresources.d/$HOSTNAME.xrdb"
 if [ -r "$XRESOURCES_HOSTCONFIG" ]
