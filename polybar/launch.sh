@@ -17,7 +17,7 @@ fi
 
 if [ "$PROFILE" = "default" ]
 then
-    PROFILE="docked"
+    PROFILE="dual"
     printf 'Using default polybar profile "%s"\n' "$PROFILE"
 fi
 
@@ -25,14 +25,14 @@ case "$PROFILE" in
     "none")
         POLYBAR_NAMES=""
         ;;
-    "docked")
+    "dual")
         POLYBAR_NAMES="primary secondary"
         ;;
-    "mobile")
+    "single")
         POLYBAR_NAMES="primary"
         ;;
     *)
-        printf 'Usage: %s {none|docked|mobile}\n' "$0"
+        printf 'Usage: %s {none|single|dual}\n' "$0"
         exit 1
 esac
 
