@@ -1,6 +1,13 @@
 #!/bin/bash
 # Check which bars should be launched
 
+[ -z "$HOSTNAME" ] && HOSTNAME="$(hostname)"
+HOSTCONFIG="$HOME/.config/polybar/hosts/$HOSTNAME.sh"
+if [ -r "$HOSTCONFIG" ]
+then
+    source "$HOSTCONFIG"
+fi
+
 PROFILE="$1"
 
 if [ -z "$PROFILE" ]

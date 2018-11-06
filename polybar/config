@@ -7,329 +7,203 @@ success = ${xrdb:color10}
 alert = ${xrdb:color9}
 warning = ${xrdb:color12}
 
-[settings]
-; The throttle settings lets the eventloop swallow up til X events
-; if they happen within Y millisecond after first event was received.
-; This is done to prevent flood of update event.
-;
-; For example if 5 modules emit an update event at the same time, we really
-; just care about the last one. But if we wait too long for events to swallow
-; the bar would appear sluggish so we continue if timeout
-; expires or limit is reached.
-throttle-output = 5
-throttle-output-for = 10
-
-; Time in milliseconds that the input handler will wait between processing events
-throttle-input-for = 30
-
-; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
-screenchange-reload = false
-
-;compositing-background = over
-;compositing-foreground = over
-;compositing-overline = xor
-;compositing-underline = xor
-;compositing-border = xor
-
 [bar/primary]
-monitor = DP-3
-monitor-fallback = LVDS-1
+enable-ipc = true
+monitor = ${env:POLYBAR_PRIMARY_MONITOR}
 width = 100%
 height = 22
+dpi = ${xrdb:dpi}
 
-font-0 = Sans:pixelsize=8;0
-font-1 = symbola:size=9;0
-font-2 = "Wuncon Siji:pixelsize=9;0"
-
-foreground = ${colors.foreground}
 background = ${colors.background}
+foreground = ${colors.foreground}
 
-;override-redirect = true
-;wm-restack = i3
+line-color = ${bar/primary.background}
+line-size = 1
 
-spacing = 1
-padding-right = 5
-module-margin = 2
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
 
-modules-left = i3
-modules-right = wifi eth battery gputemp cputemp cpu date pulseaudio
+separator = |
+font-0 = DejaVuSans-Regular:size=6;0
+font-1 = Material\ Icons:size=8;2
+font-2 = xos4\ Terminus:size=10;0
+font-3 = Siji:pixelsize=8;1
+font-4 = NotoSansSymbols2-Regular:size=5;0
+
+modules-left = ${env:POLYBAR_PRIMARY_MODULES_LEFT}
+modules-right = ${env:POLYBAR_PRIMARY_MODULES_RIGHT}
 
 tray-position = right
-tray-padding = 2
-tray-detached = false
-tray-maxsize = 16
-tray-transparent = ${colors.background}
-tray-offset-x = 0
-tray-offset-y = 0
-;tray-padding = 0
 tray-scale = 1.0
+;tray-transparent = true
+tray-background = ${self.background}
+tray-maxsize = 64
+
+tray-offset-y = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
 
 [bar/secondary]
-monitor = VGA-1
-monitor-strict = false
+monitor = DisplayPort-0
+#bottom = true
 width = 100%
 height = 22
+dpi = ${xrdb:dpi}
 
-font-0 = Sans:pixelsize=8;0
-font-1 = symbola:size=9;0
-font-2 = FontAwesome 5 Free:size=9;0
-font-3 = "Material Icons:size=9;0"
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
-foreground = ${colors.foreground}
-background = ${colors.background}
+background = ${bar/primary.background}
+foreground = ${bar/primary.foreground}
 
-;override-redirect = true
-;wm-restack = i3
+line-color = ${bar/primary.background}
+line-size = 2
 
-spacing = 1
-padding-right = 5
-module-margin = 2
+spacing = 3
+padding-right = 4
+module-margin-left = 0
+module-margin-right = 6
 
-modules-left = i3
-modules-right = mpd date
+font-0 = DejaVuSans-Regular:size=6;0
+font-1 = Material\ Icons:size=8;2
+font-2 = xos4\ Terminus:size=10;0
+font-3 = Siji:pixelsize=8;1
+font-4 = NotoSansSymbols2-Regular:size=5;0
 
-[module/date]
-type = internal/date
-interval = 1.0
-date = %Y-%m-%d%
-time = %H:%M
-date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
-;format = 🕓 <label>
-format = <label>
-label = %date% %time%
+modules-left = ${env:POLYBAR_SECONDARY_MODULES_LEFT}
+modules-right = ${env:POLYBAR_SECONDARY_MODULES_RIGHT}
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+label-charging = %percentage%% %time%h
+label-discharging = %percentage%% %time%h
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
 
 [module/cpu]
 type = internal/cpu
 interval = 0.5
-format = <ramp-coreload>
-label = %percentage%%
+format = <label> <ramp-coreload>
+label = CPU
 ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = ${colors.success}
 ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = ${colors.success}
 ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = ${colors.success}
 ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = ${colors.warning}
 ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = ${colors.warning}
 ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = ${colors.alert}
 ramp-coreload-6 = ▇
-ramp-coreload-7 = █
+ramp-coreload-6-font = 2
 ramp-coreload-6-foreground = ${colors.alert}
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = ${colors.alert}
 
-[module/cputemp]
-type = internal/temperature
+[module/date]
+type = internal/date
+date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F${colors.warning}}%S%%{F-}
 
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = RAM
 
-; Thermal zone to use
-; To list all the zone types, run
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 0
-
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
-hwmon-path = /sys/class/hwmon/hwmon2/temp1_input
-
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
-warn-temperature = 70
-
-label = CPU: %temperature-c%
-label-warn = CPU: %temperature-c%
-label-warn-foreground = ${colors.alert}
-
-[module/gputemp]
-type = internal/temperature
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
-
-; Thermal zone to use
-; To list all the zone types, run
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 3
-
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
-hwmon-path = /sys/class/hwmon/hwmon1/temp1_input
-
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
-warn-temperature = 70
-
-label = GPU: %temperature-c%
-label-warn = GPU: %temperature-c%
-label-warn-foreground = ${colors.alert}
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.success}
+bar-used-foreground-1 = ${colors.success}
+bar-used-foreground-2 = ${colors.warning}
+bar-used-foreground-3 = ${colors.alert}
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
 
 [module/mpd]
 type = internal/mpd
-host = odroid-c2
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+host = ${env:MPD_HOST}
 
-; Available tags:
-;   <label-song> (default)
-;   <label-time>
-;   <bar-progress>
-;   <toggle> - gets replaced with <icon-(pause|play)>
-;   <toggle-stop> - gets replaced with <icon-(stop|play)>
-;   <icon-random>
-;   <icon-repeat>
-;   <icon-repeatone>
-;   <icon-consume>
-;   <icon-prev>
-;   <icon-stop>
-;   <icon-play>
-;   <icon-pause>
-;   <icon-next>
-;   <icon-seekb>
-;   <icon-seekf>
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> (<label-time>)
-;format-playing = ${self.format-online}
-;format-paused = ${self.format-online}
-;format-stopped = ${self.format-online}
-format-stopped = 🎜 mpd is stopped
-format-stopped-foreground = ${colors.warning}
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
 
-; Available tags:
-;   <label-offline>
-format-offline = <label-offline>
-format-offline-foreground = ${colors.alert}
+toggle-on-foreground =
+toggle-off-foreground = #55
 
-; Available tokens:
-;   %artist%
-;   %album%
-;   %date%
-;   %title%
-; Default: %artist% - %title%
-label-song = %artist% - %title%
-label-song-foreground = ${colors.success}
-
-; Available tokens:
-;   %elapsed%
-;   %total%
-; Default: %elapsed% / %total%
-;label-time = %elapsed% / %total%
-
-; Available tokens:
-;   None
-label-offline = 🎜 mpd is offline
-
-; Only applies if <icon-X> is used
-icon-play = ⏵
-icon-pause = ⏸
-icon-stop = ⏹
-icon-prev = ⏮
-icon-next = ⏭
-icon-seekb = ⏪
-icon-seekf = ⏩
-icon-random = 🔀
-icon-repeat = 🔁
-icon-repeatone = 🔂
-icon-consume = ✀
-
-; Used to display the state of random/repeat/repeatone
-; Only applies if <icon-[random|repeat|repeatone]> is used
-toggle-on-foreground = ${colors.foreground}
-toggle-off-foreground = ${colors.foreground-alt}
-
-; Only applies if <bar-progress> is used
-bar-progress-width = 20
+bar-progress-width = 10
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
 bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
 bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
 bar-progress-empty = ─
-
-[module/battery]
-type = internal/battery
-full-at = 99.87
-battery = BAT0
-adapter = AC
-poll-interval = 5
-
-; see "man date" for details on how to format the time string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-; Default: %H:%M:%S
-time-format = %H:%M
-
-; Available tags:
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-charging>
-format-charging = <animation-charging> <label-charging>
-
-; Available tags:
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-format-discharging = <ramp-capacity> <label-discharging>
-
-; Available tags:
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-format-full = <label-full>
-label-full = Full
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
-label-charging = %percentage%% (%time%)
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
-label-discharging = %percentage%% (%time%)
-
-; Available tokens:
-;   %percentage% (default)
-;label-full = %percentage%%
-; Only applies if <ramp-capacity> is used
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-0-foreground = ${colors.alert}
-ramp-capacity-1-foreground = ${colors.alert}
-ramp-capacity-2-foreground = ${colors.warning}
-ramp-capacity-3-foreground = ${colors.warning}
-
-; Only applies if <bar-capacity> is used
-bar-capacity-width = 10
-
-; Only applies if <animation-charging> is used
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
-animation-charging-7 = 
-animation-charging-8 = 
-; Framerate in milliseconds
-animation-charging-framerate = 750
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
 
 [module/eth]
 type = internal/network
-interface = enp1s0
-format-connected =  <label-connected>
-label-connected = %local_ip% (%linkspeed%, %upspeed%↑ %downspeed%↓)
+interface = ${env:POLYBAR_IFACE_ETH}
+;format-connected = %{F#66}🖧%{F-} <label-connected>
+format-connected = 🖧 <label-connected>
+format-connected-foreground = #66
+label-connected = %local_ip% %{F#ff}(%linkspeed%, %upspeed%↑ %downspeed%↓)%{F-}
 label-connected-foreground = ${colors.success}
 label-disconnected = %ifname% down
 label-disconnected-foreground = ${colors.alert}
@@ -337,107 +211,181 @@ ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
 
+
 [module/wifi]
 type = internal/network
-interface = wlp3s0b1
-format-connected = <ramp-signal> <label-connected>
-label-connected =  %local_ip% (%signal%% at %essid%, %upspeed%↑ %downspeed%↓)
-label-connected-foreground = ${colors.success}
-format-disconnected = <label-disconnected>
-label-disconnected = %ifname% down
-label-disconnected-foreground = ${colors.alert}
+interface = ${env:POLYBAR_IFACE_WIFI}
+interval = 1.0
+ping-interval = 10
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
+format-connected = <ramp-signal> <label-connected>
+label-connected = %local_ip%    %downspeed%    %upspeed%
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/primary.foreground}
+animation-packetloss-framerate = 500
+
+
+[module/volume]
+type = internal/pulseaudio
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+:headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+#mount-2 = /data
+
+label-mounted =  %mountpoint%: %free%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = #66
+
+
+[module/cputemp]
+type = internal/temperature
+hwmon-path = ${env:POLYBAR_CPUTEMP_HWMON_PATH}
+warn-temperature = 75
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = HOT! %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+#ramp-0 = 
+#ramp-1 = 
+#ramp-2 = 
+#ramp-0 = 🌡
+ramp-0 = CPU
+#ramp-0 = ▁
+#ramp-1 = ▂
+#ramp-2 = ▃
+#ramp-3 = ▄
+#ramp-4 = ▅
+#ramp-5 = ▆
+#ramp-6 = ▇
+#ramp-7 = █
+ramp-foreground = #66
+
+[module/gputemp]
+type = internal/temperature
+hwmon-path = ${env:POLYBAR_GPUTEMP_HWMON_PATH}
+warn-temperature = 65
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+label = %temperature-c%
+label-warn = HOT! %temperature-c%
+label-warn-foreground = ${colors.alert}
+ramp-0 = GPU
+ramp-foreground = #66
 
 [module/i3]
 type = internal/i3
 
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
 pin-workspaces = true
-
-; This will split the workspace name on ':'
-; Default: false
-strip-wsnumbers = false
-
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
-index-sort = false
-
-; Create click handler used to focus workspace
-; Default: true
-enable-click = true
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
-enable-scroll = true
-
-; Wrap around when reaching the first/last workspace
-; Default: true
-wrapping-scroll = true
-
-; Set the scroll cycle direction
-; Default: true
-reverse-scroll = false
+strip-wsnumbers = true
+index-sort = true
 
 ; Use fuzzy (partial) matching on labels when assigning
 ; icons to workspaces
 ; Example: code;♚ will apply the icon to all workspaces
 ; containing 'code' in the label
 ; Default: false
-fuzzy-match = false
+fuzzy-match = true
 
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;♛
+ws-icon-2 = 3;♜
+ws-icon-3 = 4;♝
+ws-icon-4 = 5;♞
+ws-icon-default = ♟
+
+label-dimmed-underline = ${root.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
 label-mode-padding = 0
-
-label-unfocused-foreground = ${colors.foreground-alt}
-label-unfocused-padding = 1
-label-visible-foregroud = ${colors.foreground-alt}
-label-visible-padding = 1
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background-alt}
-label-focused-padding = 1
-label-urgent-padding = 1
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
-;sink = alsa_output.pci-0000_12_00.3.analog-stereo
-
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
-use-ui-max = true
-
-; Available tags:
-;   <label-volume> (default)
-;   <ramp-volume>
-;   <bar-volume>
-format-volume = <ramp-volume> <label-volume>
-
-; Available tags:
-;   <label-muted> (default)
-;   <ramp-volume>
-;   <bar-volume>
-;format-muted = <label-muted>
+label-mode-background = #e60053
 
 ; Available tokens:
-;   %percentage% (default)
-;label-volume = %percentage%%
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %index%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = ${colors.warning}
+label-focused-padding = 4
 
 ; Available tokens:
-;   %percentage% (default)
-label-muted = 🔇 muted
-label-muted-foreground = #666
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 4
 
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+format-underline = #1db954
