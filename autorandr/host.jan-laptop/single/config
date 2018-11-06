@@ -7,7 +7,7 @@ off
 output DP-3
 off
 output LVDS-1
-gamma 1.0:0.909:0.909
+gamma 1.0:0.714:0.5
 mode 1366x768
 pos 0x0
 primary
