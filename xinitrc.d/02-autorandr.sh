@@ -1,3 +1,6 @@
 #!/bin/sh
 # Switch to preferred monitor setup
-( command -v "autorandr" >/dev/null 2>&1 ) && [ -z "$(autorandr --current)" ] && autorandr --change
+if command -v "autorandr" >/dev/null 2>&1 && [ -e "$HOME/.config/autorandr" ]
+then
+    [ -z "$(autorandr --current)" ] && autorandr --change
+fi

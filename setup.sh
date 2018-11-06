@@ -13,6 +13,8 @@ abspath() {
 
 : "${HOME?Need to set HOME}"
 
+[ -z "$HOSTNAME" ] && HOSTNAME="$(hostname)"
+
 [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME"
 
@@ -84,7 +86,10 @@ symlink "$DOTFILES/bash/bash_profile"    "$HOME/.bash_profile"
 symlink "$DOTFILES/i3"                   "$HOME/.i3"
 
 # autorandr
-symlink "$DOTFILES/autorandr"            "$XDG_CONFIG_HOME/autorandr"
+if [ -e "$DOTFILES/autorandr/host.$HOSTNAME" ]
+then
+    symlink "$DOTFILES/autorandr/host.$HOSTNAME"  "$XDG_CONFIG_HOME/autorandr"
+fi
 
 # compton
 symlink "$DOTFILES/compton/compton.conf" "$HOME/.compton.conf"
