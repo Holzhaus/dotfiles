@@ -131,6 +131,7 @@ symlink "$DOTFILES/xinitrc.d"            "$HOME/.xinitrc.d"
 # Xresources
 symlink "$DOTFILES/xcolors"              "$HOME/.xcolors"
 symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
+symlink "$DOTFILES/Xresources.d"         "$HOME/.Xresources.d"
 
 # Zathura
 symlink "$DOTFILES/zathura"              "$XDG_CONFIG_HOME/zathura"

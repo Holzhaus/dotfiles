@@ -3,8 +3,6 @@
 #include ".rofi/rofi.xrdb"
 
 !-- Xft settings --!
-
-Xft.dpi:        96
 Xft.antialias:  true
 Xft.rgba:       subpixel
 Xft.hinting:    true
