@@ -20,4 +20,5 @@ then
     unset f
 fi
 
+i3-make-config
 exec i3
