@@ -90,6 +90,9 @@ if has("nvim")
     set inccommand=split
 endif
 
+" Conceal settings
+set concealcursor=
+
 " Better command-line completion
 set wildmenu
 
