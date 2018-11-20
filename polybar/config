@@ -52,7 +52,7 @@ underline-size = 2
 underline-color = ${self.background}
 
 [bar/secondary]
-monitor = DisplayPort-0
+monitor = ${env:POLYBAR_SECONDARY_MONITOR}
 #bottom = true
 width = 100%
 height = 22
