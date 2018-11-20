@@ -1,4 +1,4 @@
-export POLYBAR_PRIMARY_MONITOR="HDMI-A-0"
+export POLYBAR_PRIMARY_MONITOR="DisplayPort-1"
 export POLYBAR_PRIMARY_MODULES_LEFT="i3 mpd"
 export POLYBAR_PRIMARY_MODULES_RIGHT="cpu memory cputemp gputemp eth filesystem volume date"
 export POLYBAR_SECONDARY_MONITOR="DisplayPort-0"
