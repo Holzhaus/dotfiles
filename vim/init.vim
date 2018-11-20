@@ -90,6 +90,9 @@ if has("nvim")
     set inccommand=split
 endif
 
+" Conceal settings
+set concealcursor=
+
 " Better command-line completion
 set wildmenu
 
@@ -123,7 +126,7 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Only highlight the first 500 chars of a file (Performance)
-set synmaxcol=500
+set synmaxcol=2000
 
 " Better copy & paste
 set pastetoggle=<F2>
