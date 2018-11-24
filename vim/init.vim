@@ -13,8 +13,8 @@ if has("multi_byte")
 endif
 
 " Load my plugins
-if filereadable(expand("~/.vim/bundles.vim"))
-    source ~/.vim/bundles.vim
+if filereadable(expand("~/.vim/plugins.vim"))
+    source ~/.vim/plugins.vim
 endif
 
 " Load make systems
