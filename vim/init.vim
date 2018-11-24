@@ -216,8 +216,6 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-" Deoplete support
-let g:deoplete#enable_at_startup = 1
 
 " rooter
 let g:rooter_manual_only = 1

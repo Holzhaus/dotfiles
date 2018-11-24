@@ -21,12 +21,17 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'w0rp/ale'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-rooter'
 Plug 'tweekmonster/fzf-filemru'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -38,10 +43,7 @@ if has("python3") && has("nvim")
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
     Plug 'honza/vim-snippets'
-    Plug 'Shougo/deoplete.nvim', { 'do': function('UpdateRPlugin') }
-    Plug 'zchee/deoplete-jedi'
-    Plug 'zchee/deoplete-clang'
-    Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 endif
 
 " All of your Plugs must be added before the following line
