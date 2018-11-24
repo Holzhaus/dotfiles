@@ -216,6 +216,8 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+" ALE support
+let g:ale_completion_enabled = 0
 
 " rooter
 let g:rooter_manual_only = 1
