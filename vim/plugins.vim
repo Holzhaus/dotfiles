@@ -39,12 +39,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/DrawIt'
 Plug 'sunaku/vim-dasht'
-if has("python3") && has("nvim")
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
-    Plug 'honza/vim-snippets'
-    Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
-endif
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
+Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
