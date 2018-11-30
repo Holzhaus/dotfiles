@@ -1,6 +1,9 @@
 " Enable preview window
 set completeopt+=preview
 
+" Force refresh completion
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
 " Auto close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
