@@ -24,7 +24,7 @@ if exists('g:asyncomplete_loaded')
 
     call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
         \ 'name': 'buffer',
-        \ 'whitelist': ['markdown', 'vimwiki', 'text', 'latex', 'plaintex', 'make'],
+        \ 'whitelist': ['markdown', 'vimwiki', 'text', 'latex', 'plaintex', 'make', 'gitcommit'],
         \ 'blacklist': ['go'],
         \ 'completor': function('asyncomplete#sources#buffer#completor'),
         \ }))
