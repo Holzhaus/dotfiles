@@ -162,9 +162,9 @@ man() {
 }
 
 # Nicer substring search with fzf
-if command -v "fzf" >/dev/null 2>&1; then
-    [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 
+if command -v "fzf" >/dev/null 2>&1; then
     function fzfedit {
         local file
         file=$(fzf)
@@ -172,5 +172,3 @@ if command -v "fzf" >/dev/null 2>&1; then
     }
     bind -x '"\C-p": fzfedit;'
 fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
