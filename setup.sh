@@ -97,6 +97,10 @@ symlink "$DOTFILES/compton/compton.conf" "$HOME/.compton.conf"
 # dunst
 symlink "$DOTFILES/dunst"                "$XDG_CONFIG_HOME/dunst"
 
+# gdb
+symlink "$DOTFILES/gdb"                  "$XDG_CONFIG_HOME/gdb"
+symlink "$XDG_CONFIG_HOME/gdb/init.gdb"  "$HOME/.gdbinit"
+
 # inputrc
 symlink "$DOTFILES/inputrc"              "$HOME/.inputrc"
 
