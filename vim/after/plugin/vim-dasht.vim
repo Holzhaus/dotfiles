@@ -21,4 +21,10 @@ if exists(':Dasht')
     let g:dasht_filetype_docsets = {}
      " When in nasm, also search Intel_x86_IA32 docs:
     let g:dasht_filetype_docsets['nasm'] = ['Intel_x86_IA32']
+    let g:dasht_filetype_docsets['c'] = ['Intel_x86_IA32', 'msdn']
+    let g:dasht_filetype_docsets['cpp'] = ['^c$', 'boost', 'Intel_x86_IA32', 'msdn']
+    let g:dasht_filetype_docsets['python'] = ['(num|sci)py', 'pandas', 'requests']
+    let g:dasht_filetype_docsets['html'] = ['css', 'js', 'bootstrap']
+
+    let g:dasht_results_window = 'botright vnew'
 endif
