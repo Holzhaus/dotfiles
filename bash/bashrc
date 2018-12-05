@@ -90,8 +90,19 @@ export HISTCONTROL=ignorespace:ignoredups
 export HISTFILE=~/.bash_history_full
 export PROMPT_COMMAND="builtin history -a ; builtin history -c ; builtin history -r"
 
-# Colorize directory listings
-alias ls="ls --color=auto"
+# Nicer directory listings
+if command -v "exa" >/dev/null 2>&1; then
+    alias ls="exa --git"
+    alias tree="exa -T --git"
+else
+    alias ls="ls --color=auto"
+fi
+
+# Nicer file viewing/paging with linenumbers and highlighting
+if command -v "bat" >/dev/null 2>&1; then
+    alias cat="bat"
+    alias less="bat"
+fi
 
 # Highlight grep matches
 alias grep="grep --color=auto"
