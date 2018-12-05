@@ -91,7 +91,10 @@ if has("nvim")
 endif
 
 " Conceal settings
-set concealcursor=
+if has('conceal')
+  set conceallevel=2 concealcursor=
+endif
+
 
 " Better command-line completion
 set wildmenu
