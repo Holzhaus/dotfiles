@@ -165,7 +165,7 @@ man() {
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 
 if command -v "fzf" >/dev/null 2>&1; then
-    command -v "bat" >/dev/null 2>&1 && FZFEDIT_USE_BAT=1
+    [ -z "$FZFEDIT_USE_BAT" ] && command -v "bat" >/dev/null 2>&1 && FZFEDIT_USE_BAT=1
     function fzfedit {
         local file
         if [ "$FZFEDIT_USE_BAT" -eq 1 ]; then
@@ -177,7 +177,7 @@ if command -v "fzf" >/dev/null 2>&1; then
     }
     bind -x '"\C-p": fzfedit;'
 
-    command -v "rg" >/dev/null 2>&1 && FZFEDIT_USE_RIPGREP=1
+    [ -z "$FZFGREP_USE_RIPGREP" ] && command -v "rg" >/dev/null 2>&1 && FZFGREP_USE_RIPGREP=1
     function fzfgrep {
         local result
         local file
