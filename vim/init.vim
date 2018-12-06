@@ -192,6 +192,13 @@ function! AddModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AddModeline()<CR>
 
+" Better vimdiff
+if has('xdiff')
+    set diffopt+=indent-heuristic
+    set diffopt+=algorithm:patience
+endif
+
+
 " Reset terminal after leaving VIM
 "if !has('gui_running')
 "    au VimLeave * !echo -ne "\033[0m"
