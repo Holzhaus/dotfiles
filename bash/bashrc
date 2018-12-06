@@ -179,13 +179,24 @@ if command -v "fzf" >/dev/null 2>&1; then
 
     command -v "rg" >/dev/null 2>&1 && FZFEDIT_USE_RIPGREP=1
     function fzfgrep {
+        local result
         local file
+        local line
         if [ "$FZFGREP_USE_RIPGREP" -eq 1 ]; then
-            file=$(rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --no-messages . | fzf --ansi | cut -d ':' -f 1)
+            result=$(rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --no-messages . | fzf --ansi)
         else
-            file=$(grep --line-buffered --color=always --with-filename --line-number --no-messages --binary-files=without-match --recursive "" -- * | fzf --ansi | cut -d ':' -f 1)
+            result=$(grep --line-buffered --color=always --with-filename --line-number --no-messages --binary-files=without-match --recursive "" -- * | fzf --ansi)
         fi
-        [ "$?" -eq 0 -a ! -z "$file" ] && "$EDITOR" "$file"
+        if [ "$?" -eq 0 -a ! -z "$result" ]; then
+            printf '%s' "$result" | {
+                IFS=':' read -r file line result
+                if [ "$EDITOR" == "vim" ] || [ "$EDITOR" == "nvim" ]; then
+                    "$EDITOR" "+$line" "$file"
+                else
+                    "$EDITOR" "$file"
+                fi
+            }
+        fi
     }
     bind -x '"\C-n": fzfgrep;'
 fi
