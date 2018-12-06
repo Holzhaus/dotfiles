@@ -169,11 +169,13 @@ if command -v "fzf" >/dev/null 2>&1; then
     function fzfedit {
         local file
         if [ "$FZFEDIT_USE_BAT" -eq 1 ]; then
+            # shellcheck disable=SC2016
             file=$(fzf --preview='bat --number --color always --line-range ":$LINES" --terminal-width "$COLUMNS" --paging never {}')
         else
             file=$(fzf)
         fi
-        [ "$?" -eq 0 -a ! -z "$file" ] && "$EDITOR" "$file"
+        # shellcheck disable=SC2181
+        [ "$?" -eq 0 ] && [ -n "$file" ] && "$EDITOR" "$file"
     }
     bind -x '"\C-p": fzfedit;'
 
@@ -187,7 +189,8 @@ if command -v "fzf" >/dev/null 2>&1; then
         else
             result=$(grep --line-buffered --color=always --with-filename --line-number --no-messages --binary-files=without-match --recursive "" -- * | fzf --ansi)
         fi
-        if [ "$?" -eq 0 -a ! -z "$result" ]; then
+        # shellcheck disable=SC2181
+        if [ "$?" -eq 0 ] && [ -n "$result" ]; then
             printf '%s' "$result" | {
                 IFS=':' read -r file line result
                 if [ "$EDITOR" == "vim" ] || [ "$EDITOR" == "nvim" ]; then
