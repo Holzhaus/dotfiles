@@ -99,8 +99,8 @@ export PROMPT_COMMAND="builtin history -a ; builtin history -c ; builtin history
 
 # Nicer directory listings
 if command -v "exa" >/dev/null 2>&1; then
-    alias ls="exa --git"
-    alias tree="exa -T --git"
+    alias ls="exa --git --group"
+    alias tree="exa -T --git --group"
 else
     alias ls="ls --color=auto"
 fi
