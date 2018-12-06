@@ -19,6 +19,7 @@ endfunction
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim'
