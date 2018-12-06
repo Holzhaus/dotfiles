@@ -49,16 +49,23 @@ get_git_status() {
 get_ps1() {
     # Set the shell prompt
     #printf '[\u@\h \W]\$ '
+    local reset
+    local red
+    local green
+    local yellow
+    local blue
+    local magenta
+    local cyan
 
-    local reset="\\[$(tput sgr0)\\]"
-    local black="\\[$(tput setaf 0)\\]"
-    local red="\\[$(tput setaf 1)\\]"
-    local green="\\[$(tput setaf 2)\\]"
-    local yellow="\\[$(tput setaf 3)\\]"
-    local blue="\\[$(tput setaf 4)\\]"
-    local magenta="\\[$(tput setaf 5)\\]"
-    local cyan="\\[$(tput setaf 6)\\]"
-    local white="\\[$(tput setaf 7)\\]"
+    reset="\\[$(tput sgr0)\\]"
+    #black="\\[$(tput setaf 0)\\]"
+    red="\\[$(tput setaf 1)\\]"
+    green="\\[$(tput setaf 2)\\]"
+    yellow="\\[$(tput setaf 3)\\]"
+    blue="\\[$(tput setaf 4)\\]"
+    magenta="\\[$(tput setaf 5)\\]"
+    cyan="\\[$(tput setaf 6)\\]"
+    #white="\\[$(tput setaf 7)\\]"
 
     if command -v "git" >/dev/null 2>&1
     then
@@ -148,18 +155,19 @@ fi
 
 man() {
     env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;34m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;44;36m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        LESS_TERMCAP_mb="$(printf "\e[1;31m")" \
+        LESS_TERMCAP_md="$(printf "\e[1;34m")" \
+        LESS_TERMCAP_me="$(printf "\e[0m")" \
+        LESS_TERMCAP_se="$(printf "\e[0m")" \
+        LESS_TERMCAP_so="$(printf "\e[1;44;36m")" \
+        LESS_TERMCAP_ue="$(printf "\e[0m")" \
+        LESS_TERMCAP_us="$(printf "\e[1;32m")" \
         _NROFF_U=1 \
             man "$@"
 }
 
 # Nicer substring search with fzf
+# shellcheck disable=SC1090
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 
 if command -v "fzf" >/dev/null 2>&1; then
