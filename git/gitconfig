@@ -8,6 +8,9 @@
 	smtpUser = holthuis.jan@googlemail.com
 	smtpServerPort = 587
 
+[commit]
+	verbose = true
+
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
