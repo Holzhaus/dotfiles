@@ -165,9 +165,14 @@ man() {
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 
 if command -v "fzf" >/dev/null 2>&1; then
+    command -v "bat" >/dev/null 2>&1 && FZFEDIT_USE_BAT=1
     function fzfedit {
         local file
-        file=$(fzf)
+        if [ "$FZFEDIT_USE_BAT" -eq 1 ]; then
+            file=$(fzf --preview='bat --number --color always --line-range ":$LINES" --terminal-width "$COLUMNS" --paging never {}')
+        else
+            file=$(fzf)
+        fi
         [ "$?" -eq 0 -a ! -z "$file" ] && "$EDITOR" "$file"
     }
     bind -x '"\C-p": fzfedit;'
