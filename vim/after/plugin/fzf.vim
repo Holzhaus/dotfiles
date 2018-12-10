@@ -1,5 +1,6 @@
 " CTRLP emulation
-nmap <C-p> :ProjectMru<CR>
+command! ProjectFiles execute 'Files' FindRootDirectory()
+nmap <C-p> :ProjectFiles<CR>
 
 if executable('rg')
     let g:rg_command = '
