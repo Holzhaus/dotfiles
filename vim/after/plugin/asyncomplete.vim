@@ -1,6 +1,9 @@
 " Enable preview window
 set completeopt+=preview
 
+" Hide 'Pattern not found' messages
+set shortmess+=c
+
 " Force refresh completion
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
