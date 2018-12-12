@@ -17,6 +17,7 @@ bindings.commands:
         ",T": hint links spawn --userscript getmagnet.sh {hint-url}
         ",f": getfeed
         ",F": hint links spawn --userscript getfeed.sh {hint-url}
+        ",p": config-cycle content.proxy "http://127.0.0.1:8080" "system"
         '<z><l>': 'spawn --userscript qute-pass'
         '<z><u><l>': 'spawn --userscript qute-pass --username-only'
         '<z><p><l>': 'spawn --userscript qute-pass --password-only'
@@ -28,7 +29,5 @@ bindings.commands:
 aliases:
     scroll-down: scroll-px 0 100
     scroll-up: scroll-px 0 -100
-    burp: set content.proxy http://127.0.0.1:8080/
-    noburp: set content.proxy system
     getmagnet: spawn --userscript getmagnet.sh
     getfeed: spawn --userscript getfeed.sh
