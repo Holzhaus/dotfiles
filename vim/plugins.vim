@@ -45,6 +45,10 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
+if has('nvim') || v:version >= 800
+    Plug 'skywind3000/asyncrun.vim'
+endif
+
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
