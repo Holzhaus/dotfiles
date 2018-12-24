@@ -1,14 +1,14 @@
 " Enable preview window
 set completeopt+=preview
 
+" Hide 'Pattern not found' messages
+set shortmess+=c
+
 " Force refresh completion
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 " Auto close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" Ugly workaround for https://github.com/prabirshrestha/asyncomplete-buffer.vim/issues/1
-set updatetime=500
 
 if exists('g:asyncomplete_loaded')
     call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({

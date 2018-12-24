@@ -1,3 +1,13 @@
+setlocal expandtab
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal shiftround
+setlocal autoindent
+
+if has('conceal')
+    setlocal conceallevel=0
+endif
+
 if executable("pandoc")
     fun! Pandoc(template) "{{{
         if empty(a:template)
