@@ -107,8 +107,8 @@ fi
 
 # Nicer file viewing/paging with linenumbers and highlighting
 if command -v "bat" >/dev/null 2>&1; then
-    alias cat="bat"
-    alias less="bat"
+    alias cat="bat -p"
+    alias less="bat -p"
 fi
 
 # Highlight grep matches
