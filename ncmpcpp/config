@@ -276,7 +276,7 @@ visualizer_look = ●▮
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
-song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (5f)[blue]{yE:Year} (20)[cyan]{b} (3f)[green]{dEr:CD} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (3f)[green]{NE:#} (50)[white]{t|f:Title} (5f)[blue]{yE:Year} (20)[cyan]{b} (3f)[green]{dEr:CD} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
