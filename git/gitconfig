@@ -47,3 +47,7 @@
 
 [mergetool "nfugitive"]
 	cmd = nvim -f -c "Gdiff" "$MERGED"
+[init]
+	templatedir = ~/.gittemplate
+[alias]
+	ctags = !.git/hooks/ctags

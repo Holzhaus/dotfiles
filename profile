@@ -71,3 +71,4 @@ if command -v "alacritty" >/dev/null 2>&1; then
 fi
 
 export MPD_HOST="odroid-c2"
+export MPD_LIBRARY_PATH=/data/music/
