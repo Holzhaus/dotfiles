@@ -219,6 +219,7 @@ if has("nvim")
       au TermOpen * startinsert
       au TermClose * stopinsert
     augroup END
+    tnoremap <C-w><Esc> <C-\><C-n>
 endif
 
 if executable("rg")
