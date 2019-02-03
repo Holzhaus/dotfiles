@@ -1,11 +1,3 @@
-[submodule "urxvt/extensions/fullscreen"]
-	path = gui/urxvt/extensions/fullscreen
-	url = https://aur.archlinux.org/urxvt-fullscreen.git
-	shallow = true
-[submodule "urxvt/extensions/resize-font"]
-	path = gui/urxvt/extensions/resize-font
-	url = https://github.com/simmel/urxvt-resize-font
-	shallow = true
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = https://github.com/junegunn/vim-plug

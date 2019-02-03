@@ -1,2 +1,0 @@
-#!/bin/sh
-notify-send --urgency=normal "autorandr" "Switched to profile \"$AUTORANDR_CURRENT_PROFILE\""
