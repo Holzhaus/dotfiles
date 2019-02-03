@@ -72,31 +72,10 @@ symlink "$DOTFILES/git/gitconfig"        "$HOME/.gitconfig"
 symlink "$DOTFILES/git/gitignore_global" "$HOME/.gitignore_global"
 symlink "$DOTFILES/git/gittemplate"      "$HOME/.gittemplate"
 
-# rxvt-unicode
-symlink "$DOTFILES/urxvt"                "$HOME/.urxvt"
-
-# alacritty
-symlink "$DOTFILES/alacritty"            "$XDG_CONFIG_HOME/alacritty"
-
 # Bash
 symlink "$DOTFILES/bash/bashrc"          "$HOME/.bashrc"
 symlink "$DOTFILES/bash/bash_logout"     "$HOME/.bash_logout"
 symlink "$DOTFILES/bash/bash_profile"    "$HOME/.bash_profile"
-
-# i3-gaps config
-symlink "$DOTFILES/i3"                   "$HOME/.i3"
-
-# autorandr
-if [ -e "$DOTFILES/autorandr/host.$HOSTNAME" ]
-then
-    symlink "$DOTFILES/autorandr/host.$HOSTNAME"  "$XDG_CONFIG_HOME/autorandr"
-fi
-
-# compton
-symlink "$DOTFILES/compton/compton.conf" "$HOME/.compton.conf"
-
-# dunst
-symlink "$DOTFILES/dunst"                "$XDG_CONFIG_HOME/dunst"
 
 # gdb
 symlink "$DOTFILES/gdb"                  "$XDG_CONFIG_HOME/gdb"
@@ -111,40 +90,11 @@ symlink "$DOTFILES/latexmkrc"            "$HOME/.latexmkrc"
 # ncmpcpp
 symlink "$DOTFILES/ncmpcpp"              "$XDG_CONFIG_HOME/ncmpcpp"
 
-# nitrogen
-symlink "$DOTFILES/nitrogen"             "$XDG_CONFIG_HOME/nitrogen"
-
-# polybar
-symlink "$DOTFILES/polybar"              "$XDG_CONFIG_HOME/polybar"
-
 # profile
 symlink "$DOTFILES/profile"              "$HOME/.profile"
 
 # Python
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
-
-# qutebrowser
-mkdir -p "$XDG_DATA_HOME/qutebrowser"
-symlink "$DOTFILES/qutebrowser"             "$XDG_CONFIG_HOME/qutebrowser"
-symlink "$DOTFILES/qutebrowser/userscripts" "$XDG_DATA_HOME/qutebrowser/userscripts"
-
-# redshift
-symlink "$DOTFILES/redshift"             "$XDG_CONFIG_HOME/redshift"
-
-# rofi
-symlink "$DOTFILES/rofi"                 "$HOME/.rofi"
-
-# xinitrc
-symlink "$DOTFILES/xinitrc"              "$HOME/.xinitrc"
-symlink "$DOTFILES/xinitrc.d"            "$HOME/.xinitrc.d"
-
-# Xresources
-symlink "$DOTFILES/xcolors"              "$HOME/.xcolors"
-symlink "$DOTFILES/Xresources"           "$HOME/.Xresources"
-symlink "$DOTFILES/Xresources.d"         "$HOME/.Xresources.d"
-
-# Zathura
-symlink "$DOTFILES/zathura"              "$XDG_CONFIG_HOME/zathura"
 
 for executable in "$DOTFILES/bin/"*
 do
