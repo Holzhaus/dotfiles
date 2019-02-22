@@ -4,6 +4,7 @@
 # Vim Bundles
 vim/bundle/*
 vim/undodir/*
+vim/spell/*
 
 # Mutt
 mutt/cache/*
