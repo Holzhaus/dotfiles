@@ -168,7 +168,7 @@ man() {
 
 # Nicer substring search with fzf
 # shellcheck disable=SC1090
-[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 if command -v "fzf" >/dev/null 2>&1; then
     [ -z "$FZFEDIT_USE_BAT" ] && command -v "bat" >/dev/null 2>&1 && FZFEDIT_USE_BAT=1
