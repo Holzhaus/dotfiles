@@ -53,8 +53,10 @@ filetype plugin on
 syntax on
 
 " Color scheme
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 try
-    colorscheme monokain
+    colorscheme hybrid
     "highlight Normal ctermbg=230
     highlight Visual ctermbg=237
     "highlight NonText ctermbg=234
