@@ -191,7 +191,7 @@ if command -v "fzf" >/dev/null 2>&1; then
         local file
         local line
         if [ "$FZFGREP_USE_RIPGREP" -eq 1 ]; then
-            result=$(rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --no-messages . | fzf --ansi)
+            result=$(rg --column --line-number --no-heading --ignore-case --hidden --follow --color "always" --no-messages . | fzf --ansi)
         else
             result=$(grep --line-buffered --color=always --with-filename --line-number --no-messages --binary-files=without-match --recursive "" -- * | fzf --ansi)
         fi
