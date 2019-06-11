@@ -66,6 +66,7 @@ symlink "$HOME/.vim"                     "$XDG_CONFIG_HOME/nvim"
 # Tmux
 symlink "$DOTFILES/tmux"                 "$HOME/.tmux"
 symlink "$HOME/.tmux/tmux.conf"          "$HOME/.tmux.conf"
+symlink "$HOME/.tmux/tmux.conf.local"    "$HOME/.tmux.conf.local"
 
 # GIT
 symlink "$DOTFILES/git/gitconfig"        "$HOME/.gitconfig"
