@@ -20,7 +20,6 @@ endfunction
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'sheerun/vim-polyglot'
 
 " Completion
