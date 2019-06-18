@@ -34,6 +34,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'liuchengxu/vista.vim'
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'
@@ -45,8 +46,6 @@ Plug 'ncm2/ncm2-neosnippet'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
-Plug 'majutsushi/tagbar'
-Plug 'lvht/tagbar-markdown'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-rooter'
 Plug 'tweekmonster/fzf-filemru'
