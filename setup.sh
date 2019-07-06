@@ -97,6 +97,9 @@ symlink "$DOTFILES/profile"              "$HOME/.profile"
 # Python
 symlink "$DOTFILES/python/pythonrc.py"   "$HOME/.pythonrc.py"
 
+# WeeChat
+symlink "$DOTFILES/weechat"              "$HOME/.weechat"
+
 for executable in "$DOTFILES/bin/"*
 do
     if [ -x "$executable" ]

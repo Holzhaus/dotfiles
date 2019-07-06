@@ -19,3 +19,8 @@ i3/lockscreen.jpg
 
 # nitrogen
 nitrogen/wallpaper.jpg
+
+# WeeChat
+weechat/sec.conf
+weechat/weechat.log
+weechat/logs
