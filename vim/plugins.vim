@@ -22,25 +22,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 
-" Completion
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-
 " LSP / Linting
 Plug 'w0rp/ale'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'liuchengxu/vista.vim'
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
-Plug 'ncm2/ncm2-neosnippet'
 
 " Other stuff
 Plug 'vim-airline/vim-airline'
@@ -54,12 +43,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/DrawIt'
 Plug 'sunaku/vim-dasht'
-Plug 'embear/vim-localvimrc'
-
-if has('nvim') || v:version >= 800
-    Plug 'skywind3000/asyncrun.vim'
-endif
-
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
