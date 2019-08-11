@@ -230,7 +230,7 @@ if executable("rg")
 endif
 
 " ALE support
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 
 " rooter
 let g:rooter_manual_only = 1
