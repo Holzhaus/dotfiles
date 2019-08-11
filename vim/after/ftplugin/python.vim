@@ -4,3 +4,5 @@ setlocal softtabstop=4
 setlocal expandtab
 setlocal shiftround
 setlocal autoindent
+
+let b:ale_fixers = ['black']
