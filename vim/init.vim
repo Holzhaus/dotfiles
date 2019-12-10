@@ -231,6 +231,7 @@ endif
 
 " ALE support
 let g:ale_completion_enabled = 1
+set completeopt=menu,menuone,preview,noselect,noinsert
 let g:vista_default_executive = 'ale'
 let g:vista_finder_alternative_executives = ['ctags']
 
