@@ -37,7 +37,7 @@
 [credential]
 	helper = libsecret
 [push]
-	default = matching
+	default = simple
 
 [merge]
 	tool = nfugitive
