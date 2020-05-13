@@ -72,3 +72,5 @@ fi
 
 export MPD_HOST="odroid-c2"
 export MPD_LIBRARY_PATH=/data/music/
+
+export RADV_PERFTEST=aco
