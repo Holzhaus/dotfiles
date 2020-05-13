@@ -70,7 +70,9 @@ if command -v "alacritty" >/dev/null 2>&1; then
     export TERMINAL="alacritty"
 fi
 
-export MPD_HOST="odroid-c2"
+export MPD_HOST="raspberrypi-4b.lan"
 export MPD_LIBRARY_PATH=/data/music/
+
+export KODI_HOST="raspberrypi-4b.lan"
 
 export RADV_PERFTEST=aco
