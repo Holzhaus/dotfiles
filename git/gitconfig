@@ -53,3 +53,7 @@
 	templatedir = ~/.gittemplate
 [alias]
 	ctags = !.git/hooks/ctags
+[pull]
+	rebase = false
+[diff]
+	renameLimit = 1800
