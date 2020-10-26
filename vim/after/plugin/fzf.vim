@@ -1,6 +1,6 @@
-" CTRLP emulation
-command! ProjectFiles execute 'Files' FindRootDirectory()
-nmap <C-p> :ProjectFiles<CR>
+nmap <leader>ft :Tags<CR>
+nmap <leader>ff :Files<CR>
+nmap <leader>fp :GitFiles<CR>
 
 if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --files'
