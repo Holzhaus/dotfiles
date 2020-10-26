@@ -237,7 +237,6 @@ let g:vista_finder_alternative_executives = ['ctags']
 
 " rooter
 let g:rooter_manual_only = 1
-let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_patterns = ['Makefile', 'Rakefile', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 
