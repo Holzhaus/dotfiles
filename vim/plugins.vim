@@ -24,7 +24,6 @@ Plug 'sheerun/vim-polyglot'
 
 " LSP / Linting
 Plug 'w0rp/ale'
-Plug 'liuchengxu/vista.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 

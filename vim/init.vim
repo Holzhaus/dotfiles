@@ -243,7 +243,3 @@ let g:rooter_patterns = ['Makefile', 'Rakefile', '.git', '.git/', '_darcs/', '.h
 
 " Vimwiki
 let g:vimwiki_list = [{ 'path': '~/.vimwiki/', 'ext': '.vimwiki', 'auto_toc': 1, 'auto_tags': 1, 'syntax': 'markdown' }]
-
-" Mappings
-nmap <Leader>f :Vista finder ale<CR>
-nmap <Leader>v :Vista!!<CR>
