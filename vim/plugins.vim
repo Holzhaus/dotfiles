@@ -38,7 +38,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'airblade/vim-rooter'
 Plug 'tweekmonster/fzf-filemru'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
