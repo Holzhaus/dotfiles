@@ -1,6 +1,7 @@
 ## Custom
-cmake_build/
+*.orig
 *.plist
+.clangd/
 
 
 ## Linux
