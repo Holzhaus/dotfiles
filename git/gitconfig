@@ -40,7 +40,7 @@
 	default = simple
 
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 	renamelimit = 2000
 
