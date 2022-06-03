@@ -287,8 +287,7 @@ song_columns_list_format = (20)[]{a} (3f)[green]{NE:#} (50)[white]{t|f:Title} (5
 ## Attention: It doesn't support song format anymore.
 ## Use `ncmpcpp --now-playing SONG_FORMAT` instead.
 ##
-#execute_on_song_change = ""
-execute_on_song_change = "mpd-songnotify"
+execute_on_song_change = ""
 #
 #playlist_show_remaining_time = no
 #
