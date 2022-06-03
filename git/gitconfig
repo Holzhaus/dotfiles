@@ -58,3 +58,5 @@
 	rebase = false
 [diff]
 	renameLimit = 1800
+[mergetool]
+	keepBackup = false
