@@ -74,5 +74,3 @@ export MPD_HOST="raspberrypi-4b.lan"
 export MPD_LIBRARY_PATH=/data/music/
 
 export KODI_HOST="raspberrypi-4b.lan"
-
-export RADV_PERFTEST=aco
