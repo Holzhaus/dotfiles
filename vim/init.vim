@@ -148,7 +148,7 @@ set expandtab
 " Show Tabs and EOL
 if has("multi_byte") && ( has("nvim") || &termencoding == "utf-8" )
     set list
-    set listchars=tab:▹\ ,space:·,nbsp:␣
+    set listchars=tab:▹\ ,nbsp:␣
     set showbreak=↪\ 
 endif
 
@@ -173,11 +173,16 @@ let g:netrw_winsize = 15
 set autochdir
 nnoremap <F3> :Lexplore<CR>
 
+call mkdir(expand("~/.cache/vim/backupdir"), "p")
+set backupdir=~/.cache/vim/backupdir//
+
 " Persistent undo
 if has("persistent_undo")
-    set undodir=~/.vim/undodir
+    call mkdir(expand("~/.cache/vim/undodir"), "p")
+    set undodir=~/.cache/vim/undodir//
     set undofile
 endif
+
 
 " Enable Modelines
 set modeline
@@ -231,9 +236,16 @@ endif
 
 " ALE support
 let g:ale_completion_enabled = 1
-set completeopt=menu,menuone,preview,noselect,noinsert
 let g:vista_default_executive = 'ale'
 let g:vista_finder_alternative_executives = ['ctags']
+let g:ale_linters = {'rust': ['rls', 'analyzer']}
+let g:ale_java_javalsp_executable = '/usr/bin/java-language-server'
+let g:ale_hover_to_floating_preview = 1
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+"let g:ale_hover_to_preview = 1
+noremap <silent> <Leader>h :ALEHover<CR>
+noremap <silent> <Leader>ca :ALECodeAction<CR>
+noremap <silent> <Leader>r :ALERename<CR>
 
 " rooter
 let g:rooter_manual_only = 1
@@ -242,3 +254,6 @@ let g:rooter_patterns = ['Makefile', 'Rakefile', '.git', '.git/', '_darcs/', '.h
 
 " Vimwiki
 let g:vimwiki_list = [{ 'path': '~/.vimwiki/', 'ext': '.vimwiki', 'auto_toc': 1, 'auto_tags': 1, 'syntax': 'markdown' }]
+
+" LaTeX
+let g:tex_flavor = "latex"
