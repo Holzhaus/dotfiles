@@ -41,10 +41,6 @@ if [[ -r "$HOME/.lessrc" ]]; then
     source "$HOME/.lessrc"
 fi
 
-if command -v "w3m" >/dev/null 2>&1; then
-    export BROWSER=w3m
-fi
-
 if command -v "qutebrowser" >/dev/null 2>&1; then
     export GUIBROWSER=qutebrowser
 elif command -v "firefox" >/dev/null 2>&1; then
