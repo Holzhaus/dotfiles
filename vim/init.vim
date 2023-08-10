@@ -39,8 +39,8 @@ inoremap  <Left>   <NOP>
 inoremap  <Right>  <NOP>
 
 " Remap leader key
-let mapleader = ","
-let maplocalleader = ","
+let mapleader = ','
+"let maplocalleader = ','
 
 " Save cursor position
 augroup resCur

@@ -18,8 +18,8 @@ if executable("pandoc")
     endfunction "}}}
 
     command! -buffer -nargs=* Pandoc call Pandoc('<args>')
-    nnoremap <buffer> <LocalLeader>pn :call Pandoc(v:null)<CR>
-    nnoremap <buffer> <LocalLeader>pl :call Pandoc('letter.latex')<CR>
-    nnoremap <buffer> <LocalLeader>ps :call Pandoc('org-memo.latex')<CR>
-    nnoremap <buffer> <LocalLeader>pd :call Pandoc('org-memo2.latex')<CR>
+    nnoremap <buffer> <Leader>pn :call Pandoc(v:null)<CR>
+    nnoremap <buffer> <Leader>pl :call Pandoc('letter.latex')<CR>
+    nnoremap <buffer> <Leader>ps :call Pandoc('org-memo.latex')<CR>
+    nnoremap <buffer> <Leader>pd :call Pandoc('org-memo2.latex')<CR>
 endif
