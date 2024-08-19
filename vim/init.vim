@@ -75,6 +75,9 @@ highlight Conditional cterm=italic
 " highlight Comment cterm=italic
 highlight SpecialComment cterm=italic
 
+" Better colors when matching braces
+hi MatchParen cterm=bold ctermbg=NONE ctermfg=NONE guibg=bg guifg=fg gui=bold
+
 " Folding
 set foldmethod=indent
 set foldnestmax=10
@@ -151,9 +154,6 @@ if has("multi_byte") && ( has("nvim") || &termencoding == "utf-8" )
     set listchars=tab:▹\ ,nbsp:␣
     set showbreak=↪\ 
 endif
-
-" Better colors when matching braces
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 " Better Indentation of code blocks
 vnoremap < <gv
