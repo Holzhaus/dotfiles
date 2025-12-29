@@ -39,8 +39,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-rooter'
 Plug 'tweekmonster/fzf-filemru'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'skim-rs/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/DrawIt'
 Plug 'sunaku/vim-dasht'

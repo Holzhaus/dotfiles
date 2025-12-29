@@ -1,6 +1,6 @@
 nmap <leader>ft :Tags<CR>
 nmap <leader>ff :Files<CR>
-nmap <leader>fp :GitFiles<CR>
+nmap <leader>fp :SK<CR>
 
 if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --files'
