@@ -5,9 +5,9 @@ augroup reload_vimrc
 augroup END
 
 if has("multi_byte")
-    if &termencoding == ""
-        let &termencoding = &encoding
-    endif
+    "if &termencoding == ""
+    "    let &termencoding = &encoding
+    "endif
     set encoding=utf-8
     setglobal fileencoding=utf-8
 endif
@@ -137,7 +137,7 @@ nnoremap <C-y> 3<C-y>
 set synmaxcol=2000
 
 " Better copy & paste
-set pastetoggle=<F2>
+"set pastetoggle=<F2>
 set clipboard=unnamed
 
 " Indentation settings for using 4 spaces instead of tabs.
