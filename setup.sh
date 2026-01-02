@@ -59,9 +59,7 @@ symlink() {
 symlink "$DOTFILES/lessrc"               "$HOME/.lessrc"
 
 # VIM
-symlink "$DOTFILES/vim"                  "$HOME/.vim"
-symlink "$HOME/.vim/init.vim"            "$HOME/.vimrc"
-symlink "$HOME/.vim"                     "$XDG_CONFIG_HOME/nvim"
+symlink "$HOME/nvim"                     "$XDG_CONFIG_HOME/nvim"
 
 # Tmux
 symlink "$DOTFILES/tmux"                 "$HOME/.tmux"
